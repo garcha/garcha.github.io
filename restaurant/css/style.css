@@ -1,0 +1,23 @@
+body{
+	background-image: url("../images/restaurant.jpeg");
+	background-position: center top;
+    background-size: 100% auto;
+}
+
+#user-header{
+	padding-left: 5%;
+}
+.background{
+	background: white;
+	border-radius: 7px;
+}
+nav ul li a{
+	background: #FFC254;
+	border-radius: 7px;
+	color: black;
+}
+.margin-bottom{
+	margin-bottom: 25px;
+}
+
+

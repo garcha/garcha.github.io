@@ -1,0 +1,92 @@
+body{
+	background: #bfaf80;
+}
+#main{
+	width: 960px;
+	height: 800px;
+	margin: -20px auto;
+	background-image: url("../images/restaurant.jpeg");
+	background-size: 960px 800px;
+
+
+}
+nav ul li, footer ul li{
+	box-sizing:border-box;
+	text-decoration: none;
+	display: inline-block;
+	width: auto;
+	height: 30px;
+	background: #A2A198;
+	padding-left: 20px;
+	padding-top: 6px;
+	padding-right: 20px;
+}
+form{
+	background: white;
+
+}
+#mainarea, #sidequestion, #mainquestion, #sidequestion{
+	background: #F2E2C4;
+}
+
+#mainquestion{
+	box-sizing:border-box;
+	border: 1px solid black;
+	display: block;
+	width: 	430px;
+	height: 130px;
+	margin-left: 80px;
+	float: left;
+	padding: 10px; 
+}
+
+#sidequestion{
+	box-sizing:border-box;
+	border: 1px solid black;
+	display: block;
+	width: 290px;
+	height: 130px;
+	margin-left: 80px;
+	float: left;
+	padding: 10px;
+}
+#mainarea{
+	clear: both;
+	margin: 80px 80px 80px 80px;
+	border: 1px solid black;
+}
+
+ul li a{
+	text-decoration: none;
+}
+img{
+	display: block;
+	float: right;
+	margin-top: 30px;
+	margin-right: 40px;
+}
+h2{
+	clear: both;
+	text-align: center;
+	margin: 40px;
+}
+ol{
+	box-sizing:border-box;
+	padding:40px;
+	display: block;
+	float: left;
+	margin: 0px;
+}
+footer{
+	clear:both;
+	margin: 40px;
+}
+#highlight{
+	background-color: yellow;
+}
+#results_area{
+	width: 300px;
+}
+form{
+	background: #F2E2C4;
+}
