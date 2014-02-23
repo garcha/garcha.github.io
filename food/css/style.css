@@ -19,5 +19,18 @@ nav ul li a{
 .margin-bottom{
 	margin-bottom: 25px;
 }
-
+img{
+	width: 100%;
+	border-radius: 7px;
+}
+.bottom{
+	margin-bottom: 20px;
+}
+.reviewImg{
+	width: 100px;
+	border-radius: 0px;
+}
+ul li{
+	text-decoration: none;
+}
 
