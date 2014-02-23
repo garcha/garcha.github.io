@@ -1,12 +1,9 @@
 var auth = { 
   //
-  // Update with your auth tokens.
   //
     consumerKey: "wCDI3cCWcp2xoepcrAdE5Q", 
     consumerSecret: "xthfPXUSNJ4eFa9UkzcvdfTg0bM",
     accessToken: "exuEA22jIXntED-3EYydV6Ap4t8jn5hD",
-    // This example is a proof of concept, for how to use the Yelp v2 API with javascript.
-    // You wouldn't actually want to expose your access token secret like this in a real application.
     accessTokenSecret: "RGE8GAbXXOgh64MfCKvGPwb6BAs",
     serviceProvider: { 
       signatureMethod: "HMAC-SHA1"  }
@@ -165,4 +162,3 @@ $(document).ready(function(){
 });
 
 getData();
-
