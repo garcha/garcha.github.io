@@ -1,138 +1,26 @@
-(function ($) {
+/*!
+ * Start Bootstrap - Agnecy Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
 
-	$(window).scroll(function(){
-		if ($(this).scrollTop() > 100) {
-			$('.scrollup').fadeIn();
-			} else {
-				$('.scrollup').fadeOut();
-			}
-		});
-		$('.scrollup').click(function(){
-			$("html, body").animate({ scrollTop: 0 }, 1000);
-				return false;
-		});
-	
-	// local scroll
-	jQuery('.navbar').localScroll({hash:true, offset: {top: 0},duration: 800, easing:'easeInOutExpo'});
+// jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
 
-	
-	// portfolio
-    if($('.isotopeWrapper').length){
+// Highlight the top nav as scrolling occurs
+$('body').scrollspy({
+    target: '.navbar-fixed-top'
+})
 
-        var $container = $('.isotopeWrapper');
-        var $resize = $('.isotopeWrapper').attr('id');
-        // initialize isotope
-        
-        $container.isotope({
-            itemSelector: '.isotopeItem',
-            resizable: false, // disable normal resizing
-            masonry: {
-                columnWidth: $container.width() / $resize
-            }
-
-
-            
-        });
-
-        $('#filter a').click(function(){
-
-
-
-            $('#filter a').removeClass('current');
-            $(this).addClass('current');
-            var selector = $(this).attr('data-filter');
-            $container.isotope({
-                filter: selector,
-                animationOptions: {
-                    duration: 1000,
-                    easing: 'easeOutQuart',
-                    queue: false
-                }
-            });
-            return false;
-        });
-        
-        
-        $(window).smartresize(function(){
-            $container.isotope({
-                // update columnWidth to a percentage of container width
-                masonry: {
-                    columnWidth: $container.width() / $resize
-                }
-            });
-        });
-        
-
-}  
-
-
-	// fancybox
-	jQuery(".fancybox").fancybox();
-
-
-	if (Modernizr.mq("screen and (max-width:1024px)")) {
-			jQuery("body").toggleClass("body");
-			
-	} else {
-		var s = skrollr.init({
-			mobileDeceleration: 1,
-			edgeStrategy: 'set',
-			forceHeight: true,
-			smoothScrolling: true,
-			smoothScrollingDuration: 300,
-				easing: {
-					WTF: Math.random,
-					inverted: function(p) {
-						return 1-p;
-					}
-				}
-			});	
-	}
-
-
-
-	//scroll menu
-	jQuery('.appear').appear();
-	jQuery(".appear").on("appear", function(data) {
-			var id = $(this).attr("id");
-			jQuery('.nav li').removeClass('active');
-			jQuery(".nav a[href='#" + id + "']").parent().addClass("active");					
-		});
-
-
-		//parallax
-        var isMobile = false;
-
-        if(Modernizr.mq('only all and (max-width: 1024px)') ) {
-            isMobile = true;
-        }
-
-        
-        if (isMobile == false && ($('#parallax1').length  ||isMobile == false &&  $('#parallax2').length ||isMobile == false &&  $('#testimonials').length))
-        {
-
-
-            $(window).stellar({
-                responsive:true,
-                scrollProperty: 'scroll',
-                parallaxElements: false,
-                horizontalScrolling: false,
-                horizontalOffset: 0,
-                verticalOffset: 0
-            });
-
-        }
-	
-	//nicescroll
-	$("html").niceScroll({zindex:999,cursorborder:"",cursorborderradius:"2px",cursorcolor:"#191919",cursoropacitymin:.5});
-	function initNice() {
-		if($(window).innerWidth() <= 960) {
-			$('html').niceScroll().remove();
-		} else {
-			$("html").niceScroll({zindex:999,cursorborder:"",cursorborderradius:"2px",cursorcolor:"#191919",cursoropacitymin:.5});
-		}
-	}
-	$(window).load(initNice);
-	$(window).resize(initNice);
-
-})(jQuery);
+// Closes the Responsive Menu on Menu Item Click
+$('.navbar-collapse ul li a').click(function() {
+    $('.navbar-toggle:visible').click();
+});
