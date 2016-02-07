@@ -3,8 +3,8 @@ var auth = {
   //
     consumerKey: "wCDI3cCWcp2xoepcrAdE5Q", 
     consumerSecret: "xthfPXUSNJ4eFa9UkzcvdfTg0bM",
-    accessToken: "exuEA22jIXntED-3EYydV6Ap4t8jn5hD",
-    accessTokenSecret: "RGE8GAbXXOgh64MfCKvGPwb6BAs",
+    accessToken: "GzGYkh984Fiqv1qJam_eRiPjcndO-g4t",
+    accessTokenSecret: "g_XPlm3advEhFRfrSRpwivM8KD4",
     serviceProvider: { 
       signatureMethod: "HMAC-SHA1"  }
 };
