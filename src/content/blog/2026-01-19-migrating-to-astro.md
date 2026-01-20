@@ -35,22 +35,6 @@ The migration turned into a deeper rethink than I expected. As I pulled apart th
 **Content Collections**
 The biggest win was setting up two content collections - one for blog posts, one for projects. Each has its own schema enforced by Zod:
 
-```typescript
-const blogCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    pubDate: z.coerce.date(),
-    tags: z.array(z.string()).default([]),
-    draft: z.boolean().default(false),
-    generatedBy: z.enum(['human', 'agent']).default('human'),
-  }),
-});
-```
-
-The `generatedBy` field is intentional - I want to be transparent about which posts are fully human-written versus AI-assisted. It's an experiment in working with AI tools as collaborative writing partners.
-
 **Projects Section**
 I documented three active projects:
 - **White Label Reviews (ProspectWise)**: A reputation management platform built with Rails, React, and AWS Lambda
