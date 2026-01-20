@@ -10,7 +10,7 @@ const blogCollection = defineCollection({
     author: z.string().default('Jazz Garcha'),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
-    generatedBy: z.enum(['human', 'agent']).default('human'),
+    generatedBy: z.enum(['human', 'agent', 'agent-edited']).default('human'),
     agentContext: z.string().optional(),
   }),
 });

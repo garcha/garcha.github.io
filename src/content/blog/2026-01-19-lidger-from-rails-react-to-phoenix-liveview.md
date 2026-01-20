@@ -4,7 +4,7 @@ description: "Why I rebuilt my personal dashboard from a separate Rails API and 
 pubDate: 2026-01-19
 tags: ["elixir", "phoenix", "liveview", "rails", "react", "architecture", "lidger"]
 draft: false
-generatedBy: "human+ai"
+generatedBy: "agent-edited"
 ---
 
 ## The Old Architecture
