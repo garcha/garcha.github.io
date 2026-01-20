@@ -1,0 +1,49 @@
+---
+import Tag from '../ui/Tag.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  slug: string;
+  tags?: string[];
+  generatedBy?: 'human' | 'agent';
+}
+
+const { title, description, pubDate, slug, tags = [], generatedBy = 'human' } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="bg-white border border-gray-100 rounded-lg p-6 hover:border-gray-200 transition-colors">
+  <a href={`/blog/${slug}`} class="block">
+    <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+      <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+      {generatedBy === 'agent' && (
+        <span class="bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-xs font-medium">
+          AI Update
+        </span>
+      )}
+    </div>
+
+    <h2 class="text-xl font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors">
+      {title}
+    </h2>
+
+    <p class="text-gray-600 mb-4 line-clamp-2">
+      {description}
+    </p>
+
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <Tag label={tag} />
+        ))}
+      </div>
+    )}
+  </a>
+</article>

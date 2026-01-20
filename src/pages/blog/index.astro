@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+import BlogCard from '../../components/blog/BlogCard.astro';
+
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+const sortedPosts = allPosts.sort((a, b) =>
+  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Blog"
+  description="Updates on what I'm building, technical learnings, and insights from my engineering journey."
+>
+  <section class="py-16">
+    <div class="container max-w-screen-xl mx-auto px-4">
+      <SectionHeader
+        title="Blog"
+        subtitle="Updates on what I'm building, technical learnings, and insights from my engineering journey."
+      />
+
+      {sortedPosts.length === 0 ? (
+        <div class="text-center py-12">
+          <p class="text-gray-500">No posts yet. Check back soon!</p>
+        </div>
+      ) : (
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {sortedPosts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              slug={post.slug}
+              tags={post.data.tags}
+              generatedBy={post.data.generatedBy}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

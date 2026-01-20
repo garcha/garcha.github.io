@@ -1,0 +1,60 @@
+---
+import SectionHeader from "../ui/SectionHeader.astro";
+import Card from "../ui/Card.astro";
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="container max-w-screen-xl mx-auto px-4">
+    <SectionHeader title="Engineering Philosophy" subtitle="How I approach building software" />
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <Card>
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Systems Over Tickets</h3>
+        <p class="text-gray-600">
+          I think in systems, not isolated features. Every change is an opportunity to improve the whole, not just close
+          a ticket. Understanding how pieces connect leads to better decisions.
+        </p>
+      </Card>
+
+      <Card>
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Clarity From Ambiguity</h3>
+        <p class="text-gray-600">
+          Many projects fail from unclear requirements, not technical challenges. I turn fuzzy problems into clear plans
+          that teams can execute against.
+        </p>
+      </Card>
+
+      <Card>
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Trade offs Over Perfection</h3>
+        <p class="text-gray-600">
+          Perfect is the enemy of shipped. I make explicit trade offs, document them, and move forward. The goal is the
+          right solution for now, not an imaginary ideal.
+        </p>
+      </Card>
+
+      <Card>
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Maintainability</h3>
+        <p class="text-gray-600">
+          Code is read far more than it's written. I optimize for the team that will maintain this code in six months.
+          Which is often future me.
+        </p>
+      </Card>
+
+      <Card>
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Reliability & Observability</h3>
+        <p class="text-gray-600">
+          If it's not observable, it's not reliable. I build systems that tell you when something is wrong before users
+          notice, with clear paths to diagnosis.
+        </p>
+      </Card>
+
+      <Card>
+        <h3 class="text-lg font-semibold text-gray-900 mb-3">Economic Thinking</h3>
+        <p class="text-gray-600">
+          Engineering is about allocating limited resources over time, attention, and compute. I weigh effort against
+          value and choose the path that maximizes impact.
+        </p>
+      </Card>
+    </div>
+  </div>
+</section>

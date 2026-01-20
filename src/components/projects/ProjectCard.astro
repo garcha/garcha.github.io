@@ -1,0 +1,54 @@
+---
+import Tag from '../ui/Tag.astro';
+
+interface Props {
+  title: string;
+  tagline: string;
+  description: string;
+  status: 'active' | 'beta' | 'development' | 'archived';
+  slug: string;
+  techStack: string[];
+  category: string;
+}
+
+const { title, tagline, description, status, slug, techStack, category } = Astro.props;
+
+const statusColors = {
+  active: { bg: 'bg-green-100', text: 'text-green-700', label: 'Active' },
+  beta: { bg: 'bg-blue-100', text: 'text-blue-700', label: 'Beta' },
+  development: { bg: 'bg-yellow-100', text: 'text-yellow-700', label: 'In Development' },
+  archived: { bg: 'bg-gray-100', text: 'text-gray-700', label: 'Archived' },
+};
+
+const statusStyle = statusColors[status];
+---
+
+<article class="bg-white border border-gray-100 rounded-lg p-6 hover:border-gray-200 hover:shadow-sm transition-all">
+  <a href={`/projects/${slug}`} class="block">
+    <div class="flex items-center justify-between mb-3">
+      <span class={`px-2 py-1 rounded text-xs font-medium ${statusStyle.bg} ${statusStyle.text}`}>
+        {statusStyle.label}
+      </span>
+      <span class="text-xs text-gray-400 uppercase tracking-wider">{category}</span>
+    </div>
+
+    <h2 class="text-xl font-semibold text-gray-900 mb-1 hover:text-blue-600 transition-colors">
+      {title}
+    </h2>
+
+    <p class="text-sm text-gray-500 mb-3">{tagline}</p>
+
+    <p class="text-gray-600 mb-4 line-clamp-2 text-sm">
+      {description}
+    </p>
+
+    <div class="flex flex-wrap gap-1.5">
+      {techStack.slice(0, 4).map((tech) => (
+        <Tag label={tech} />
+      ))}
+      {techStack.length > 4 && (
+        <span class="text-xs text-gray-400 self-center">+{techStack.length - 4} more</span>
+      )}
+    </div>
+  </a>
+</article>

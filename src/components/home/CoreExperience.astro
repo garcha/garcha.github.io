@@ -1,0 +1,146 @@
+---
+import SectionHeader from "../ui/SectionHeader.astro";
+import Card from "../ui/Card.astro";
+---
+
+<section class="py-16 bg-white">
+  <div class="container max-w-screen-xl mx-auto px-4">
+    <SectionHeader title="Core Experience" subtitle="Full-stack depth across Rails, React, and beyond" />
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <Card class="border-l-4 border-l-blue-500">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">Rails, Elixir & Backend at Scale</h3>
+        <ul class="space-y-3 text-gray-600">
+          <li class="flex items-start gap-2">
+            <span class="text-blue-500 mt-1">•</span>
+            Ruby on Rails applications handling millions of daily requests
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-blue-500 mt-1">•</span>
+            Elixir and Phoenix for concurrent, fault-tolerant systems
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-blue-500 mt-1">•</span>
+            ActiveRecord mastery: complex queries, eager loading, N+1 prevention
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-blue-500 mt-1">•</span>
+            Background jobs with Sidekiq, performance tuning
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-blue-500 mt-1">•</span>
+            Memory leak diagnosis and production debugging
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-blue-500 mt-1">•</span>
+            API design and long-lived integrations with external services
+          </li>
+        </ul>
+      </Card>
+
+      <Card class="border-l-4 border-l-teal-500">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">React & Frontend</h3>
+        <ul class="space-y-3 text-gray-600">
+          <li class="flex items-start gap-2">
+            <span class="text-teal-500 mt-1">•</span>
+            ReactJS applications with Classes and Hooks
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-teal-500 mt-1">•</span>
+            State management with MobX, Redux, and Apollo/GraphQL
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-teal-500 mt-1">•</span>
+            Phoenix LiveView for real-time interfaces
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-teal-500 mt-1">•</span>
+            Responsive design and component architecture
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-teal-500 mt-1">•</span>
+            Full-stack feature development from UI to database
+          </li>
+        </ul>
+      </Card>
+
+      <Card class="border-l-4 border-l-green-500">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">Architecture & Systems Design</h3>
+        <ul class="space-y-3 text-gray-600">
+          <li class="flex items-start gap-2">
+            <span class="text-green-500 mt-1">•</span>
+            Greenfield system design with technical leadership
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-green-500 mt-1">•</span>
+            Evolving monoliths into cleaner modular boundaries
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-green-500 mt-1">•</span>
+            Schema design, migrations at scale, backward compatible changes
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-green-500 mt-1">•</span>
+            Reducing operational risk while shipping features
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-green-500 mt-1">•</span>
+            Service extraction when (and only when) it makes sense
+          </li>
+        </ul>
+      </Card>
+
+      <Card class="border-l-4 border-l-purple-500">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">Data & SQL</h3>
+        <ul class="space-y-3 text-gray-600">
+          <li class="flex items-start gap-2">
+            <span class="text-purple-500 mt-1">•</span>
+            PostgreSQL schema design, indexing strategies, query planning
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-purple-500 mt-1">•</span>
+            Query optimization: from explain analyze to materialized views
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-purple-500 mt-1">•</span>
+            Data integrity through constraints, validations, and careful modeling
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-purple-500 mt-1">•</span>
+            Understanding how data models affect performance and product flexibility
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-purple-500 mt-1">•</span>
+            Reporting and analytics query design
+          </li>
+        </ul>
+      </Card>
+
+      <Card class="border-l-4 border-l-orange-500">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">Quality & Reliability (QA Roots)</h3>
+        <ul class="space-y-3 text-gray-600">
+          <li class="flex items-start gap-2">
+            <span class="text-orange-500 mt-1">•</span>
+            QA background influencing every engineering decision
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-orange-500 mt-1">•</span>
+            Testability as a design concern, not an afterthought
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-orange-500 mt-1">•</span>
+            Edge cases, failure modes, and observability built in
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-orange-500 mt-1">•</span>
+            RSpec, integration testing, and continuous integration
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-orange-500 mt-1">•</span>
+            Fewer incidents, faster recovery when things go wrong
+          </li>
+        </ul>
+      </Card>
+    </div>
+  </div>
+</section>

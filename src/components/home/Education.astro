@@ -1,0 +1,48 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const education = [
+  {
+    title: 'Elixir Web Developer',
+    institution: 'DockYard Academy',
+  },
+  {
+    title: 'Meta Back-End Developer Specialization',
+    institution: 'Coursera',
+  },
+  {
+    title: 'Meta Database Engineer Specialization',
+    institution: 'Coursera',
+  },
+  {
+    title: 'Back-End Web Development',
+    institution: 'General Assembly',
+  },
+  {
+    title: 'Front-End Web Development',
+    institution: 'General Assembly',
+  },
+  {
+    title: 'Bachelor of Science, Business Marketing',
+    institution: 'California State University, Northridge',
+  },
+];
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="container max-w-screen-xl mx-auto px-4">
+    <SectionHeader
+      title="Education & Certifications"
+      subtitle="Continuous learning and formal training"
+    />
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {education.map((item) => (
+        <div class="bg-white p-6 rounded-lg border border-gray-100">
+          <h3 class="text-lg font-semibold text-gray-900 mb-1">{item.title}</h3>
+          <p class="text-gray-500 text-sm">{item.institution}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
