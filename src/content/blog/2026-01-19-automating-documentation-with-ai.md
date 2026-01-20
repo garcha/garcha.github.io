@@ -2,15 +2,13 @@
 title: "How I Built an AI Agent to Automatically Write My Engineering Blog Posts"
 description: "Here's how I built an AI-driven workflow to automatically generate developer documentation without interrupting coding flow."
 pubDate: 2026-01-19
-tags: ["building-in-public", "meta", "ai", "automation"]
+tags: ["engineering", "meta", "ai", "automation"]
 draft: false
 generatedBy: "agent"
 agentContext: "Explaining the blog agent setup and workflow for documenting development progress"
 ---
 
 ## The Real Problem: Writing Is Work
-
-"Build in public" sounds simple until you try to do it consistently.
 
 Shipping code already consumes the scarce resource: focused time. Writing about that code is a second job layered on top of the first. It means reopening mental context, reconstructing decisions, and translating half-formed engineering thoughts into clean prose. That cost is real.
 
