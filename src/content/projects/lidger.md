@@ -5,7 +5,7 @@ description: "A comprehensive personal dashboard combining OKR tracking, task ma
 status: "active"
 featured: true
 order: 3
-techStack: ["Ruby on Rails", "PostgreSQL", "Hotwire", "Chart.js", "Tailwind CSS", "Claude Code"]
+techStack: ["Elixir", "Phoenix", "Ecto", "LiveView", "PostgreSQL", "Chart.js", "Tailwind CSS", "Claude Code"]
 category: "personal"
 url: "https://lidger.com/"
 startDate: 2018-01-01
@@ -46,8 +46,8 @@ Lidger is a personal dashboard designed to provide a single source of truth for 
 
 ## Technical Highlights
 
-Rails monolith with rich interactivity:
-- Hotwire for real-time updates without SPA complexity
+Phoenix monolith with rich interactivity:
+- LiveView for real-time updates without SPA complexity
 - Chart.js for data visualization
 - Mobile-responsive design for on-the-go logging
 - Data export for analysis
