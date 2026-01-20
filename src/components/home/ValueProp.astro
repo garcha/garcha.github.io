@@ -1,15 +1,21 @@
 ---
+import Section from '../ui/Section.astro';
 import SectionHeader from '../ui/SectionHeader.astro';
+
+interface Props {
+  bg?: 'white' | 'gray';
+}
+
+const { bg = 'white' } = Astro.props;
 ---
 
-<section class="py-16 bg-white">
-  <div class="container max-w-screen-xl mx-auto px-4">
-    <SectionHeader
-      title="How I Add Value"
-      subtitle="What you get when we work together"
-    />
+<Section bg={bg}>
+  <SectionHeader
+    title="How I Add Value"
+    subtitle="What you get when we work together"
+  />
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="text-center p-6">
         <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
           <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -61,6 +67,5 @@ import SectionHeader from '../ui/SectionHeader.astro';
           get messy, and a focus on solutions over blame.
         </p>
       </div>
-    </div>
   </div>
-</section>
+</Section>

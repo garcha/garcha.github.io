@@ -1,15 +1,21 @@
 ---
+import Section from '../ui/Section.astro';
 import SectionHeader from '../ui/SectionHeader.astro';
+
+interface Props {
+  bg?: 'white' | 'gray';
+}
+
+const { bg = 'white' } = Astro.props;
 ---
 
-<section class="py-16 bg-white">
-  <div class="container max-w-screen-xl mx-auto px-4">
-    <SectionHeader
-      title="Work Experience"
-      subtitle="Professional history and accomplishments"
-    />
+<Section bg={bg}>
+  <SectionHeader
+    title="Work Experience"
+    subtitle="Professional history and accomplishments"
+  />
 
-    <div class="space-y-12">
+  <div class="space-y-12">
       <!-- ProspectWise - Senior Software Engineer -->
       <div class="border-l-4 border-blue-500 pl-6">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
@@ -122,6 +128,5 @@ import SectionHeader from '../ui/SectionHeader.astro';
           </li>
         </ul>
       </div>
-    </div>
   </div>
-</section>
+</Section>

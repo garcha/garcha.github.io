@@ -1,12 +1,18 @@
 ---
+import Section from "../ui/Section.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
+
+interface Props {
+  bg?: 'white' | 'gray';
+}
+
+const { bg = 'gray' } = Astro.props;
 ---
 
-<section class="py-16 bg-gray-50">
-  <div class="container max-w-screen-xl mx-auto px-4">
-    <SectionHeader title="Leadership & Collaboration" subtitle="Impact beyond individual contribution" />
+<Section bg={bg}>
+  <SectionHeader title="Leadership & Collaboration" subtitle="Impact beyond individual contribution" />
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       <div class="flex gap-4">
         <div class="flex-shrink-0">
           <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -134,6 +140,5 @@ import SectionHeader from "../ui/SectionHeader.astro";
           </p>
         </div>
       </div>
-    </div>
   </div>
-</section>
+</Section>

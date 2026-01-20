@@ -7,7 +7,7 @@ interface Props {
   pubDate: Date;
   slug: string;
   tags?: string[];
-  generatedBy?: 'human' | 'agent';
+  generatedBy?: 'human' | 'agent' | 'agent-edited';
 }
 
 const { title, description, pubDate, slug, tags = [], generatedBy = 'human' } = Astro.props;
@@ -25,7 +25,12 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
       <time datetime={pubDate.toISOString()}>{formattedDate}</time>
       {generatedBy === 'agent' && (
         <span class="bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-xs font-medium">
-          AI Update
+          AI Generated
+        </span>
+      )}
+      {generatedBy === 'agent-edited' && (
+        <span class="bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded text-xs font-medium">
+          AI + Human
         </span>
       )}
     </div>

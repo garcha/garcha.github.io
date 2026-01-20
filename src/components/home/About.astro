@@ -1,11 +1,17 @@
 ---
+import Section from "../ui/Section.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 import Card from "../ui/Card.astro";
+
+interface Props {
+  bg?: 'white' | 'gray';
+}
+
+const { bg = 'gray' } = Astro.props;
 ---
 
-<section class="py-16 bg-gray-50">
-  <div class="container max-w-screen-xl mx-auto px-4">
-    <SectionHeader title="Engineering Philosophy" subtitle="How I approach building software" />
+<Section bg={bg}>
+  <SectionHeader title="Engineering Philosophy" subtitle="How I approach building software" />
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       <Card>
@@ -56,5 +62,4 @@ import Card from "../ui/Card.astro";
         </p>
       </Card>
     </div>
-  </div>
-</section>
+</Section>

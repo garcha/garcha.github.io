@@ -1,6 +1,13 @@
 ---
+import Section from '../ui/Section.astro';
 import SectionHeader from '../ui/SectionHeader.astro';
 import Tag from '../ui/Tag.astro';
+
+interface Props {
+  bg?: 'white' | 'gray';
+}
+
+const { bg = 'gray' } = Astro.props;
 
 const categories = [
   {
@@ -30,14 +37,13 @@ const categories = [
 ];
 ---
 
-<section class="py-16 bg-gray-50">
-  <div class="container max-w-screen-xl mx-auto px-4">
-    <SectionHeader
-      title="Tools & Stack"
-      subtitle="Technologies I work with daily"
-    />
+<Section bg={bg}>
+  <SectionHeader
+    title="Tools & Stack"
+    subtitle="Technologies I work with daily"
+  />
 
-    <div class="space-y-6">
+  <div class="space-y-6">
       {categories.map((category) => (
         <div class="flex flex-col md:flex-row md:items-center gap-3">
           <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider md:w-40 flex-shrink-0">
@@ -50,6 +56,5 @@ const categories = [
           </div>
         </div>
       ))}
-    </div>
   </div>
-</section>
+</Section>

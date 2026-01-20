@@ -1,5 +1,12 @@
 ---
+import Section from '../ui/Section.astro';
 import SectionHeader from '../ui/SectionHeader.astro';
+
+interface Props {
+  bg?: 'white' | 'gray';
+}
+
+const { bg = 'gray' } = Astro.props;
 
 const education = [
   {
@@ -29,20 +36,18 @@ const education = [
 ];
 ---
 
-<section class="py-16 bg-gray-50">
-  <div class="container max-w-screen-xl mx-auto px-4">
-    <SectionHeader
-      title="Education & Certifications"
-      subtitle="Continuous learning and formal training"
-    />
+<Section bg={bg}>
+  <SectionHeader
+    title="Education & Certifications"
+    subtitle="Continuous learning and formal training"
+  />
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {education.map((item) => (
         <div class="bg-white p-6 rounded-lg border border-gray-100">
           <h3 class="text-lg font-semibold text-gray-900 mb-1">{item.title}</h3>
           <p class="text-gray-500 text-sm">{item.institution}</p>
         </div>
       ))}
-    </div>
   </div>
-</section>
+</Section>

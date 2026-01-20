@@ -1,13 +1,19 @@
 ---
+import Section from "../ui/Section.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 import Card from "../ui/Card.astro";
+
+interface Props {
+  bg?: 'white' | 'gray';
+}
+
+const { bg = 'white' } = Astro.props;
 ---
 
-<section class="py-16 bg-white">
-  <div class="container max-w-screen-xl mx-auto px-4">
-    <SectionHeader title="Core Experience" subtitle="Full-stack depth across Rails, React, and beyond" />
+<Section bg={bg}>
+  <SectionHeader title="Core Experience" subtitle="Full-stack depth across Rails, React, and beyond" />
 
-    <div class="grid md:grid-cols-2 gap-8">
+  <div class="grid md:grid-cols-2 gap-8">
       <Card class="border-l-4 border-l-blue-500">
         <h3 class="text-xl font-semibold text-gray-900 mb-4">Rails, Elixir & Backend at Scale</h3>
         <ul class="space-y-3 text-gray-600">
@@ -141,6 +147,5 @@ import Card from "../ui/Card.astro";
           </li>
         </ul>
       </Card>
-    </div>
   </div>
-</section>
+</Section>
