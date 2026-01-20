@@ -110,11 +110,9 @@ Writing about this migration forced me to articulate why I made certain choices.
 ## Next Steps
 
 The foundation is solid now. Next up:
-- Write more blog posts documenting the three active projects
-- Add analytics to see which content resonates
-- Consider adding a newsletter signup (maybe - still on the fence about this)
+- Write more blog posts documenting learning
 - Keep iterating on the projects and writing about what I learn
 
-The site is live at [garcha.github.io](https://garcha.github.io). The code is public. If you're building something similar and have questions, reach out.
+The site is live at [jaspreetgarhca.com](https://jaspreetgarcha.com). The code is public. If you're building something similar and have questions, reach out.
 
 Let's keep building.
