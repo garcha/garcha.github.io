@@ -1,6 +1,6 @@
 ---
-title: "Automating Documentation with AI: A Meta Post About This Blog"
-description: "How I'm using an AI agent to help document my building-in-public journey without breaking development flow."
+title: "How I Built an AI Agent to Automatically Write My Engineering Blog Posts"
+description: "Here's how I built an AI-driven workflow to automatically generate developer documentation without interrupting coding flow."
 pubDate: 2026-01-19
 tags: ["building-in-public", "meta", "ai", "automation"]
 draft: false
@@ -8,13 +8,27 @@ generatedBy: "agent"
 agentContext: "Explaining the blog agent setup and workflow for documenting development progress"
 ---
 
-## The Problem with Building in Public
+## The Real Problem: Writing Is Work
 
-I want to build in public. I believe in it. Regular updates create accountability, capture learning while it's fresh, and help others who might be solving similar problems.
+"Build in public" sounds simple until you try to do it consistently.
 
-But here's the thing: stopping to write a blog post breaks flow. When you're deep in code, context-switching to write prose is painful. And when you've just finished a feature, the last thing you want to do is document it. You want to ship it and move on.
+Shipping code already consumes the scarce resource: focused time. Writing about that code is a second job layered on top of the first. It means reopening mental context, reconstructing decisions, and translating half-formed engineering thoughts into clean prose. That cost is real.
 
-So posts don't get written. Lessons don't get captured. The building-in-public commitment quietly dies.
+The result is predictable:
+- You finish a feature.
+- You tell yourself you'll write about it later.
+- "Later" never comes.
+
+Not because you don't care—but because documentation competes directly with momentum. Every post requires a full context switch. Every context switch drains energy. Over time, the habit collapses.
+
+What I actually wanted was this:
+- Stay in flow while building.
+- Capture intent and decisions as they happen.
+- Let something else do the slow, mechanical work of turning that into words.
+
+LLMs are good at exactly that: summarizing messy, in-progress thinking into coherent narrative. The goal wasn't "write for me." The goal was to remove the tax that writing imposes on building.
+
+So I stopped treating documentation as a separate task—and built a system where it's a byproduct of the work itself.
 
 ## The Solution: An AI Agent That Writes Blog Posts
 
@@ -44,6 +58,80 @@ I give it context about what I think is worth documenting, and it:
 5. Marks it as `generatedBy: "agent"` for transparency
 
 The agent doesn't write marketing copy or hype. It writes honest engineering logs - what I was trying to do, what assumptions I made, where things broke, what I learned.
+
+## The Prompt
+
+Here's the actual prompt I use to guide the agent:
+
+```
+You are a documentation and narrative agent embedded inside a development workflow.
+
+Your job is to:
+
+Read the full conversation between the primary LLM and the user.
+
+Extract the story of the work:
+
+What was the original goal?
+
+What approach was planned?
+
+What assumptions were made?
+
+What problems or edge cases emerged?
+
+What corrections, pivots, or refinements happened?
+
+What was learned about the problem, the domain, or the implementation?
+
+Produce a clear, chronological blog-style post that:
+
+Summarizes the intent of the project or feature.
+
+Describes how it was originally designed.
+
+Highlights mistakes, friction, and course-corrections.
+
+Captures insights, tradeoffs, and lessons learned.
+
+Reads like a thoughtful engineering log, not marketing copy.
+
+Is written in plain, direct language for other builders.
+
+Writing style:
+
+First-person ("I") or neutral engineering voice.
+
+Honest about uncertainty, missteps, and iteration.
+
+Focused on process and learning, not just outcomes.
+
+Concrete and technical where appropriate.
+
+No fluff. No hype.
+
+Output format:
+
+Markdown compatible with Astro.
+
+Title at the top.
+
+Use clear sections such as:
+
+Context
+
+Original Plan
+
+What Changed
+
+Iterations & Fixes
+
+What I Learned
+
+Next Steps
+```
+
+The prompt is deliberately opinionated about style. I want engineering logs, not marketing. I want honesty about mistakes, not just polished outcomes.
 
 ## Why This Approach Works
 
@@ -82,7 +170,5 @@ You're reading the output. Meta enough for you?
 ## Next Steps
 
 I'll keep refining this workflow as I use it. Maybe I'll add more structure to the agent prompts. Maybe I'll build a better interface for invoking it. Maybe I'll discover this whole thing is a terrible idea.
-
-That's the point of building in public. Try things, document them, learn from them.
 
 Let's see where this goes.
