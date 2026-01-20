@@ -4,7 +4,7 @@ description: "Here's how I built an AI-driven workflow to automatically generate
 pubDate: 2026-01-19
 tags: ["engineering", "meta", "ai", "automation"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 agentContext: "Explaining the blog agent setup and workflow for documenting development progress"
 ---
 
@@ -145,7 +145,7 @@ The prompt is deliberately opinionated about style. I want engineering logs, not
 
 The current stack:
 
-- **Claude Code** - Anthropic's CLI for invoking Claude as a development agent
+- **Claude Code** - Anthropic's CLI for invoking Claude as a development agent, to write the blog (Astro file)
 - **Astro** - Static site generator with content collections
 - **Tailwind CSS** - For styling
 - **GitHub Pages** - Hosting
