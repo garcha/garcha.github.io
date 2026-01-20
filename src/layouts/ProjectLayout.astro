@@ -47,11 +47,13 @@ const statusStyle = statusColors[status];
 const formattedStartDate = startDate?.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
+  timeZone: 'UTC',
 });
 
 const formattedLaunchDate = launchDate?.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
+  timeZone: 'UTC',
 });
 ---
 
