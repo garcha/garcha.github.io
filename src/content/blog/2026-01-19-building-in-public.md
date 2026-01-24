@@ -4,7 +4,7 @@ description: "Launching a new portfolio site and committing to building projects
 pubDate: 2026-01-19
 tags: ["meta", "projects", "building-in-public"]
 draft: false
-generatedBy: "human"
+generatedBy: "agent"
 ---
 
 ## A Fresh Start
@@ -16,12 +16,15 @@ After years of building software for others, I'm carving out time to work on my 
 I'm currently working on three projects:
 
 ### White Label Reviews
+
 A reputation management platform for small businesses. The idea came from watching local businesses struggle to compete with larger companies in managing their online presence.
 
 ### Idealeet
+
 An AI-powered landing page generator. The goal is to make it dead simple for entrepreneurs to create professional landing pages without needing design or coding skills.
 
 ### Lidger
+
 A personal dashboard combining goals, tasks, health tracking, and habits. This one's for me - I got tired of having my life scattered across a dozen different apps.
 
 ## Why Build in Public?

@@ -4,7 +4,7 @@ description: "How we improved test coverage from 30% to 80% before upgrading a R
 pubDate: 2026-01-22
 tags: ["building-in-public", "engineering", "rails", "testing", "legacy-code"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 ---
 
 ## Context
@@ -221,9 +221,9 @@ The smart move: update them proactively before upgrading Rails. You'll get depre
 
 ### 5. Test Speed Matters
 
-The initial test suite took over minutes to run. After switching from Poltergeist to Selenium and optimizing the Capybara setup, it dropped to around 7 seconds for the full suite.
+The initial test suite took over minutes to run. After switching from Poltergeist to Selenium and optimizing the Capybara setup, it dropped to around 50 seconds for the full suite.
 
-Why does this matter? Because developers run tests frequently. If tests take minutes, you're more likely to skip running them. At 7 seconds, there's no excuse.
+Why does this matter? Because developers run tests frequently. If tests take minutes, you're more likely to skip running them. At 50 seconds, there's no excuse.
 
 ### 6. External Service Mocking is Non-Negotiable
 
@@ -252,7 +252,7 @@ Today, the test suite is stable:
 - ✅ All deprecated test infrastructure removed
 - ✅ Modern Selenium + headless Chrome for browser tests
 - ✅ VCR + WebMock for external API mocking
-- ✅ Tests run in ~7 seconds
+- ✅ Tests run in ~50 seconds
 
 The test suite now generates deprecation warnings for controller syntax, but that's intentional. These warnings will guide the Rails 4.2 → 5.0 upgrade.
 
