@@ -446,6 +446,88 @@ Rails 8.0 is stricter about test quality. Tests should:
 
 These warnings force you to write better tests.
 
+### Issue 8: Active Storage Configuration Required (Deployment Issue)
+
+**Symptom:**
+
+After successfully running all tests locally, deploying to Heroku resulted in the unicorn server crashing on startup with:
+
+```
+NameError: uninitialized constant ActiveStorage::Service
+activestorage-8.0.4/app/models/active_storage/blob.rb:252:in `<class:Blob>'
+```
+
+The app wouldn't even start—the error occurred during Rails initialization and eager loading.
+
+**Root cause:**
+
+Rails 8.0 includes Active Storage by default when you use `require 'rails/all'` in `config/application.rb`.
+
+Previous Rails versions (4.2-7.1) had Active Storage as an optional component. If you didn't configure it, it simply didn't load.
+
+Rails 8.0 changed this: Active Storage loads automatically, and it expects configuration to exist. Specifically:
+
+1. `config/storage.yml` must exist
+2. Each environment must set `config.active_storage.service`
+
+Our app uses CarrierWave for file uploads, not Active Storage. We never created `config/storage.yml` because we didn't use the feature.
+
+Rails 7.1 tolerated this—Active Storage loaded but didn't fail if unconfigured.
+
+Rails 8.0 crashes during eager loading if the configuration is missing.
+
+The error happened in production (Heroku) but not development because:
+
+- Development mode doesn't eager load by default (`config.eager_load = false`)
+- Production mode eager loads everything (`config.eager_load = true`)
+- Eager loading tries to initialize `ActiveStorage::Blob`, which references `ActiveStorage::Service`
+- Without configuration, `ActiveStorage::Service` can't be initialized
+
+**The fix:**
+
+Two changes required:
+
+1. Create `config/storage.yml` with minimal configuration:
+
+```yaml
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+```
+
+2. Add `config.active_storage.service` to each environment file:
+
+```ruby
+# config/environments/development.rb
+config.active_storage.service = :local
+
+# config/environments/test.rb
+config.active_storage.service = :test
+
+# config/environments/production.rb
+config.active_storage.service = :local
+```
+
+Even though we don't use Active Storage for anything, these configurations must exist for Rails 8.0 to start.
+
+**Why this matters:**
+
+This issue affects apps that:
+
+- Upgraded from Rails 7.x or earlier
+- Use alternative upload gems (CarrierWave, Shrine, Paperclip, etc.)
+- Never configured Active Storage
+
+Rails 8.0 makes Active Storage a required configuration, not an optional feature.
+
+The error only appears in production (or when `config.eager_load = true`), which makes it easy to miss during local development testing.
+
+If you're deploying a Rails 8.0 upgrade and the server crashes with `uninitialized constant ActiveStorage::Service`, this is the fix.
+
 ### Configuration Updates
 
 Updated `config/application.rb`:
@@ -526,7 +608,19 @@ The warning forced us to write better tests that:
 - Have explicit precondition checks
 - Always run at least one assertion
 
-### 7. Incremental Upgrades Completed the Journey
+### 7. Active Storage is Now Required Configuration
+
+This was a subtle but important change: Rails 8.0 includes Active Storage by default and requires it to be configured, even if you don't use it.
+
+Key lessons:
+
+- **Eager loading exposes missing configuration**: The issue only appeared in production where `config.eager_load = true`. Development testing with `eager_load = false` missed it completely.
+- **Test with production-like settings**: Running `RAILS_ENV=production rails runner 'puts Rails.env'` locally would have caught this before deployment.
+- **Alternative upload gems don't exempt you**: Using CarrierWave, Shrine, or other upload solutions doesn't mean you can skip Active Storage configuration in Rails 8.0.
+
+The fix is minimal—just add `config/storage.yml` and set `config.active_storage.service` in each environment—but finding the root cause took time because the error message pointed to Active Storage internals, not configuration.
+
+### 8. Incremental Upgrades Completed the Journey
 
 This was the eighth and final phase of our Rails upgrade journey:
 
@@ -551,16 +645,17 @@ After all fixes:
 - 82% code coverage maintained
 - No deprecation warnings
 - No missing assertion warnings
+- Successfully deployed to Heroku production
 
-Rails 8.0.4 and Ruby 3.2.7 are now running cleanly in development and ready for staging deployment.
+Rails 8.0.4 and Ruby 3.2.7 are now running cleanly in both development and production environments.
 
 ## Next Steps
 
 **Immediate:**
 
-- Deploy to staging for full integration testing
-- Monitor for edge cases missed by unit tests
-- Update deployment scripts for Ruby 3.2.7
+- ✅ Deployed to production successfully
+- Monitor production for edge cases missed by unit tests
+- Watch for any performance differences with Ruby 3.2.7
 
 **Technical Debt to Address:**
 
@@ -599,11 +694,11 @@ The journey is complete.
 
 **Upgrade Stats:**
 
-- **Time**: ~3 hours
+- **Time**: ~4 hours (including deployment troubleshooting)
 - **Tests**: 582 passing (100% maintained)
 - **Coverage**: 82%
-- **Major Issues**: 7 (Ruby version, pg gem, PaperTrail, Minitest, file upload state, Devise mappings, test assertions)
-- **Commits**: 3 (Ruby upgrade, Rails upgrade, test fixes)
+- **Major Issues**: 8 (Ruby version, pg gem, PaperTrail, Minitest, file upload state, Devise mappings, test assertions, Active Storage config)
+- **Commits**: 4 (Ruby upgrade, Rails upgrade, test fixes, Active Storage config)
 - **Total Journey**: Rails 4.2 → 8.0 (8 phases, 2+ years)
 
 ---
