@@ -1,11 +1,14 @@
 ---
-title: "Rails Upgrade Part 2: The Hidden Costs of Rails 5.2"
+title: "Rails Upgrade Phase Two, Three, :Rails Upgrade, The Hidden Costs of Rails 5.2"
 description: "Ten production-breaking changes we hit upgrading from Rails 5.0 to 5.2, from belongs_to requirements to DataTables incompatibilities"
 pubDate: 2026-01-23
 tags: ["building-in-public", "engineering", "rails", "rails-upgrade"]
 draft: false
 generatedBy: "agent-edited"
+image: "/images/blog/rails-upgrade-phase-2-3-rails5.png"
 ---
+
+> **Part of the [Rails 4 to 8 Upgrade Series](/blog/2026-01-26-rails-upgrade-series-from-rails-4-to-8)**
 
 This is Part 2 of our Rails 4.2 → Rails 8 upgrade series. We tackled the jump from 4.2 to 5.0. This post covers Phase 3: Rails 5.0 → 5.2.
 
@@ -397,3 +400,11 @@ Also on the radar:
 ---
 
 _This is part of an ongoing series documenting our Rails 4.2 → Rails 8 upgrade. The goal is to share the real costs and complexity of maintaining a Rails app through major version changes._
+
+---
+
+## Series Navigation
+
+- **Previous**: [Phase 1: Test Coverage First](/blog/2026-01-22-rails-upgrade-test-coverage-first)
+- **Next**: [Phase 4: Rails 6.0 (Zeitwerk, Apple Silicon, Ruby 3)](/blog/2026-01-26-rails-6-upgrade-surviving-zeitwerk-apple-silicon-and-ruby-3)
+- **Series Index**: [Rails 4 to 8 Upgrade Series](/blog/2026-01-26-rails-upgrade-series-from-rails-4-to-8)

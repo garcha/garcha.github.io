@@ -11,9 +11,10 @@ interface Props {
   tags?: string[];
   generatedBy?: 'human' | 'agent';
   agentContext?: string;
+  image?: string;
 }
 
-const { title, description, pubDate, updatedDate, tags = [], generatedBy, agentContext } = Astro.props;
+const { title, description, pubDate, updatedDate, tags = [], generatedBy, agentContext, image } = Astro.props;
 
 const formattedPubDate = pubDate.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -28,7 +29,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
 });
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={image}>
   <article class="py-16">
     <div class="container max-w-screen-md mx-auto px-4">
       <header class="mb-10">
@@ -74,6 +75,16 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
             {tags.map((tag) => (
               <Tag label={tag} />
             ))}
+          </div>
+        )}
+
+        {image && (
+          <div class="mt-6">
+            <img
+              src={image}
+              alt={title}
+              class="w-full rounded-lg shadow-md"
+            />
           </div>
         )}
       </header>

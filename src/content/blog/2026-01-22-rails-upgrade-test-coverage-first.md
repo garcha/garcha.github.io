@@ -1,11 +1,14 @@
 ---
-title: "Step One of Upgrading a Legacy Rails App: Test Coverage First"
+title: "Rails Upgrade Phase One: of Upgrading a Legacy Rails App: Test Coverage First"
 description: "How we improved test coverage from 30% to 80% before upgrading a Rails 4.2 application, and why that foundation made all the difference."
 pubDate: 2026-01-22
 tags: ["building-in-public", "engineering", "rails", "testing", "legacy-code"]
 draft: false
 generatedBy: "agent-edited"
+image: "/images/blog/rails-upgrade-phase-1-tests.png"
 ---
+
+> **Part of the [Rails 4 to 8 Upgrade Series](/blog/2026-01-26-rails-upgrade-series-from-rails-4-to-8)**
 
 ## Context
 
@@ -284,3 +287,10 @@ The Rails upgrade journey is long, but with a solid test foundation, it's manage
 **Test coverage isn't the goal—confidence is.** Tests are the tool that gives you confidence to make big changes without fear.
 
 Now, on to Rails 5.0.
+
+---
+
+## Series Navigation
+
+- **Next**: [Phase 2 & 3: Rails 5.0 to 5.2](/blog/2026-01-23-rails-upgrade-part-2-fixing-rails-52-compatibility)
+- **Series Index**: [Rails 4 to 8 Upgrade Series](/blog/2026-01-26-rails-upgrade-series-from-rails-4-to-8)
