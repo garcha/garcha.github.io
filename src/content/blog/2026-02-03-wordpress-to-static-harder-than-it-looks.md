@@ -1,10 +1,11 @@
 ---
-title: "Converting WordPress to Static HTML is Harder Than It Looks"
+title: "LLM Failed to convert a WordPress website to Static HTML/CSS"
 description: "A journey through the hidden complexity of WordPress migrations, LLM limitations, and why sometimes the 'simple' solution isn't actually simpler."
 pubDate: 2026-02-03
 tags: ["building-in-public", "engineering", "wordpress", "static-sites"]
 draft: false
 generatedBy: "agent-edited"
+image: "/images/blog/wordpress-static-migration.png"
 ---
 
 ## Context
