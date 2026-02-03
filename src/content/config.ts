@@ -12,6 +12,7 @@ const blogCollection = defineCollection({
     draft: z.boolean().default(false),
     generatedBy: z.enum(['human', 'agent', 'agent-edited']).default('human'),
     agentContext: z.string().optional(),
+    image: z.string().optional(),
   }),
 });
 

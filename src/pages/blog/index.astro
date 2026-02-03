@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
-import BlogCard from '../../components/blog/BlogCard.astro';
 
 const allPosts = await getCollection('blog', ({ data }) => {
   return data.draft !== true;
@@ -11,6 +10,14 @@ const allPosts = await getCollection('blog', ({ data }) => {
 const sortedPosts = allPosts.sort((a, b) =>
   b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+};
 ---
 
 <BaseLayout
@@ -18,7 +25,7 @@ const sortedPosts = allPosts.sort((a, b) =>
   description="Updates on what I'm building, technical learnings, and insights from my engineering journey."
 >
   <section class="py-16">
-    <div class="container max-w-screen-xl mx-auto px-4">
+    <div class="container max-w-screen-lg mx-auto px-4">
       <SectionHeader
         title="Blog"
         subtitle="Updates on what I'm building, technical learnings, and insights from my engineering journey."
@@ -29,18 +36,40 @@ const sortedPosts = allPosts.sort((a, b) =>
           <p class="text-gray-500">No posts yet. Check back soon!</p>
         </div>
       ) : (
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ul class="space-y-6">
           {sortedPosts.map((post) => (
-            <BlogCard
-              title={post.data.title}
-              description={post.data.description}
-              pubDate={post.data.pubDate}
-              slug={post.slug}
-              tags={post.data.tags}
-              generatedBy={post.data.generatedBy}
-            />
+            <li>
+              <a
+                href={`/blog/${post.slug}`}
+                class="block py-2 group"
+              >
+                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+                  <time
+                    datetime={post.data.pubDate.toISOString()}
+                    class="text-sm text-gray-400 shrink-0 tabular-nums"
+                  >
+                    {formatDate(post.data.pubDate)}
+                  </time>
+                  <span class="text-gray-900 font-medium group-hover:text-blue-600 transition-colors">
+                    {post.data.title}
+                  </span>
+                </div>
+                <p class="text-gray-500 text-sm mt-1 sm:ml-[6.5rem]">
+                  {post.data.description}
+                </p>
+                {post.data.tags && post.data.tags.length > 0 && (
+                  <div class="flex flex-wrap gap-1.5 mt-2 sm:ml-[6.5rem]">
+                    {post.data.tags.map((tag: string) => (
+                      <span class="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
     </div>
   </section>

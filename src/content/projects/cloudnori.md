@@ -7,7 +7,7 @@ featured: false
 order: 5
 techStack: ["Elixir", "Phoenix", "LiveView", "PostgreSQL", "Tailwind CSS", "Oban", "SEC EDGAR API", "Massive.com API"]
 category: "tool"
-github: "https://github.com/jazz/stock_research"
+url: "https://cloudnori.com/"
 startDate: 2024-12-01
 problem: "Traditional stock screeners focus on growth metrics and upside potential, often overlooking the factors that can lead to catastrophic failure or ruin."
 solution: "A screening methodology based on Nassim Taleb's anti-fragility principles, evaluating companies on leverage, cash flow survival, and robustness to identify resilient businesses."
