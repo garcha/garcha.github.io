@@ -93,7 +93,7 @@ LLMs are excellent at explaining concepts, writing boilerplate code, and suggest
 
 ## Next Steps
 
-The site is now running on DigitalOcean with proper WordPress hosting. It's stable, performant, and I'm not fighting with deployment issues anymore. This proved the backup and restore works, and my friend can have her website back. There may be additional complexity when restoring it in the future as versions change with wordpress, php, themes, plugins, etc... we'll handle that when the website will actually be restored.
+The site is now running on DigitalOcean with proper WordPress hosting. It's stable, performant, and I'm not fighting with deployment issues anymore. This proved the backup and restore works. There may be additional complexity when restoring it in the future as versions change with wordpress, php, themes, plugins, etc... we'll handle that when the website will actually be restored.
 
 If I were starting from scratch, I'd use a static site generator like Astro, Hugo, or Eleventy. But for an existing WordPress site with years of content and customization? Sometimes the path of least resistance is just running WordPress properly.
 
