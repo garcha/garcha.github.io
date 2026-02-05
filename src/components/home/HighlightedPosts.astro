@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+import Section from "../ui/Section.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+
+interface Props {
+  bg?: "white" | "gray";
+}
+
+const { bg = "white" } = Astro.props;
+
+// Manually selected highlighted posts (edit these slugs to change which posts are featured)
+const highlightedSlugs = [
+  "2026-01-26-rails-upgrade-series-from-rails-4-to-8",
+  "2026-01-19-automating-documentation-with-ai",
+  "2026-01-19-lidger-from-rails-react-to-phoenix-liveview",
+];
+
+const allPosts = await getCollection("blog", ({ data }) => data.draft !== true);
+
+const highlightedPosts = highlightedSlugs.map((slug) => allPosts.find((post) => post.slug === slug)).filter(Boolean);
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+};
+---
+
+<Section bg={bg}>
+  <SectionHeader title="Featured Blogs" subtitle="Technical insights and real world learnings" />
+
+  <div class="grid gap-6 md:grid-cols-3">
+    {
+      highlightedPosts.map((post) => (
+        <a
+          href={`/blog/${post.slug}`}
+          class="group block p-6 bg-white border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all"
+        >
+          <time datetime={post.data.pubDate.toISOString()} class="text-sm text-gray-400">
+            {formatDate(post.data.pubDate)}
+          </time>
+          <h3 class="mt-2 text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+            {post.data.title}
+          </h3>
+          <p class="mt-2 text-sm text-gray-500 line-clamp-3">{post.data.description}</p>
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-1.5 mt-3">
+              {post.data.tags.slice(0, 3).map((tag: string) => (
+                <span class="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded">{tag}</span>
+              ))}
+            </div>
+          )}
+        </a>
+      ))
+    }
+  </div>
+
+  <div class="mt-8 text-center">
+    <a href="/blog" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
+      View all posts
+      <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </a>
+  </div>
+</Section>
