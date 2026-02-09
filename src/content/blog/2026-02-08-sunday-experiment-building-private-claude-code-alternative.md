@@ -105,13 +105,12 @@ With the stack assembled, the real experiment began: finding a model that could 
 
 I tried several models through Ollama, ranging from the tiny to the ambitious:
 
-| Model              | Parameters | VRAM Usage         | Coding Performance                                         |
-| ------------------ | ---------- | ------------------ | ---------------------------------------------------------- |
-| codellama:7b       | 7B         | ~4GB               | Fast but limited context, surface-level code understanding |
-| llama3.1:8b        | 8B         | ~6GB               | Better reasoning, still struggled with complex codebases   |
-| codellama:13b      | 13B        | ~10GB              | Usable, but slow inference started to become noticeable    |
-| gpt-oss:20b        | 20B        | ~14GB (quantized)  | Best overall coding performance                            |
-| deepseek-coder:33b | 33B        | Too large for VRAM | Never ran successfully                                     |
+| Model         | Parameters | VRAM Usage        | Coding Performance                                         |
+| ------------- | ---------- | ----------------- | ---------------------------------------------------------- |
+| codellama:7b  | 7B         | ~4GB              | Fast but limited context, surface-level code understanding |
+| llama3.1:8b   | 8B         | ~6GB              | Better reasoning, still struggled with complex codebases   |
+| codellama:13b | 13B        | ~10GB             | Usable, but slow inference started to become noticeable    |
+| gpt-oss:20b   | 20B        | ~14GB (quantized) | Best overall coding performance                            |
 
 The pattern was clear almost immediately: smaller models were fast but couldn't maintain context or understand complex code structures. Larger models showed promise but pushed the hardware to its limits.
 
@@ -176,7 +175,7 @@ Despite the limitations, some use cases worked well:
 
 - **Autonomous bug fixing**: "Find and fix all bugs in this codebase" - the model would either miss issues or suggest incorrect fixes
 - **Multi-step tasks**: "Write tests, run them, fix failures, repeat until passing" - the iteration loop was too slow and error-prone
-- **Complex refactoring**: "Migrate this codebase to a new framework" -超出了上下文理解能力
+- **Complex refactoring**: "update date the following section with the the following hardware configuration."
 
 ---
 
@@ -240,7 +239,7 @@ After weeks of experimentation, my daily workflow evolved into a hybrid approach
 
 ### Hardware Realities
 
-The 4070 Ti Super is a great consumer GPU, but for consistent LLM coding work, 24GB VRAM is the realistic minimum. The 16GB limit meant constant quantization compromises and memory management headaches.
+The 4070 Ti Super is a great consumer GPU, but for consistent LLM coding work, 24GB VRAM is the realistic minimum if not higher. The 16GB limit meant constant quantization compromises and memory management headaches.
 
 ### Model Selection Matters More Than Stack
 
