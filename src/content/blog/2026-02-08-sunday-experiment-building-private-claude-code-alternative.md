@@ -123,14 +123,18 @@ That's it. One command, and the server is accessible from all my authenticated d
 
 ### Opencode
 
-This is the piece that transforms a raw Ollama instance into something Claude Code-like. Opencode exposes your local models as an OpenAI-compatible REST API.
+This is the piece that transforms a raw Ollama instance into something Claude Code-like. Opencode is an agent runner (reads files, runs bash, edits code) that connects to Ollama's OpenAI-compatible API.
+
+The mental model:
+- **Ollama** = inference server that exposes an OpenAI-compatible REST API at `/v1`
+- **Opencode** = agentic client that talks to Ollama (or other providers) to perform coding tasks
 
 ```bash
-export OLLAMA_HOST=localhost:11434
+export OLLAMA_HOST=http://localhost:8080
 npx opencode serve
 ```
 
-Suddenly, any tool that works with OpenAI's API can point to my local server instead. LangChain agents, coding tools, existing projects—all become candidates for local LLM power.
+With this setup, Opencode connects to Ollama's API endpoint, and any other tools that work with OpenAI's API can also point directly to Ollama's `/v1` endpoint. LangChain agents, coding tools, existing projects—all become candidates for local LLM power by pointing them at `http://localhost:8080/v1`.
 
 ---
 
@@ -189,7 +193,7 @@ The trade-off was speed. Every coding session became a lesson in patience. But f
 
 With gpt-oss identified as the best model, I attempted to use it for agentic writing and editing tasks—essentially, having the model help draft, edit, and refine blog content.
 
-The OpenAI-compatible API from Opencode meant I could connect it to your writing assistant tools. I tried using the agent to:
+The OpenAI-compatible API from Ollama meant I could connect it to writing assistant tools. I tried using the agent to:
 
 - Draft technical blog posts from outlines
 - Edit and refine written content
