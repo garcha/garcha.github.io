@@ -2,7 +2,7 @@
 title: "Sunday Experiment: Building a Private Claude Code Alternative"
 description: "A weekend deep-dive into self-hosting LLMs for coding assistance, what worked, what failed, and why gpt-oss emerged as the best option."
 pubDate: 2026-02-08
-tags: ["ollama", "llm", "coding", "claude-code", "self-hosted", "opencode"]
+tags: ["building-in-public", "engineering", "ollama", "llm", "self-hosted"]
 draft: false
 generatedBy: "agent"
 image: "/images/blog/run-gpt-20b-ollama-tailscale-opencode.png"
@@ -41,6 +41,21 @@ Building a true alternative meant more than just running a model locally. It mea
 
 ---
 
+## Constraints
+
+Before diving in, I needed to be honest about the boundaries of this experiment:
+
+- **Hardware**: Limited to 16GB VRAM on a consumer GPU (4070 Ti Super), which forces aggressive quantization for larger models
+- **Remote access**: I wanted to run inference on my desktop but access it from my laptop, wherever I happened to be working
+- **Time**: This was a Sunday experiment, I needed something working quickly, not a production grade system
+- **Expertise**: I wanted minimal DevOps complexity; no Kubernetes, no custom CUDA kernels, no model surgery
+- **Privacy**: The entire point was fully local inference with no cloud fallback, so hybrid solutions were off the table
+- **Budget**: Zero additional spend using only hardware I already owned
+
+These constraints shaped every decision that followed.
+
+---
+
 ## The Hardware
 
 Here's what I had available in my home office:
@@ -59,9 +74,29 @@ Reality, as we'll see, had other ideas.
 
 ---
 
-## The Stack: Ollama + Tailscale + Opencode
+## Options Considered
 
-After researching various approaches, I landed on a three-part stack that seemed ideal for the experiment:
+Before settling on my final stack, I evaluated several approaches for each component:
+
+### LLM Inference Server
+
+| Option        | Pros                                                    | Cons                                              | Verdict      |
+| ------------- | ------------------------------------------------------- | ------------------------------------------------- | ------------ |
+| **Ollama**    | Dead simple setup, good model library, active community | Less control over inference parameters            | ✓ Chose this |
+| **LM Studio** | GUI-based, beginner-friendly                            | Less scriptable, harder to integrate with tooling | ✗            |
+| **LocalAI**   | OpenAI-compatible out of the box                        | Smaller model ecosystem, less active development  | ✗            |
+
+### Remote Access
+
+| Option                | Pros                                            | Cons                                      | Verdict      |
+| --------------------- | ----------------------------------------------- | ----------------------------------------- | ------------ |
+| **Tailscale**         | Zero-config, WireGuard-based, secure by default | Depends on coordination server            | ✓ Chose this |
+| **Port forwarding**   | Simple concept                                  | Security nightmare, exposes home network  | ✗            |
+| **Cloudflare Tunnel** | Free, handles HTTPS                             | More complex, unnecessary for private use | ✗            |
+
+The winning combination—Ollama + Tailscale + Opencode—optimized for simplicity and time-to-working-prototype over raw performance or flexibility.
+
+---
 
 ### Ollama
 
@@ -260,6 +295,22 @@ The Sunday experiment didn't produce a Claude Code killer. But it did produce:
 
 ---
 
+## What I'd Change
+
+Looking back with the benefit of hindsight, here's what I would do differently:
+
+1. **Start with hardware research first**: I would have investigated VRAM requirements and realistic model sizes before getting excited about specific models. Understanding that 20B+ parameters essentially require 24GB+ VRAM for comfortable operation would have set better expectations from the start.
+
+2. **Test model selection earlier**: Instead of optimizing the infrastructure stack (Ollama, Tailscale, networking), I should have focused on finding the right model first. The stack was the easy part; the model capabilities were the bottleneck.
+
+3. **Set realistic expectations upfront**: Consumer hardware fundamentally can't match cloud inference infrastructure. Accepting this earlier would have shaped the experiment toward "useful for specific use cases" rather than "Claude Code replacement."
+
+4. **Rent cloud GPU time for calibration**: Spending $10-20 on a cloud GPU instance to test larger models (33B, 70B) would have helped me understand what's actually possible versus what my hardware could deliver. That comparison would have been valuable context.
+
+5. **Build for the hybrid workflow from day one**: Instead of trying to replace Claude Code entirely, I should have designed for the hybrid workflow I ended up with—local models for privacy-sensitive tasks, cloud models for complex agentic work.
+
+---
+
 ## Conclusion
 
 Building a private alternative to Claude Code on a Sunday was ambitious. The honest assessment: it didn't work as intended. The coding agents I built couldn't match Claude Code's agentic capabilities, and gpt-oss, while the best option available, wasn't designed for tool use and multi-step reasoning.
@@ -289,6 +340,6 @@ sudo systemctl enable ollama-stack.service
 sudo systemctl start ollama-stack.service
 ```
 
-The service ensures Ollama restart automatically after system reboots or if either container becomes unresponsive.
+The service ensures Ollama restarts automatically after system reboots or if the container becomes unresponsive.
 
 That's a Sunday well spent.
