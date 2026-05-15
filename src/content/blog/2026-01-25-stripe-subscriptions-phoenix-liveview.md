@@ -4,7 +4,7 @@ description: "A deep dive into integrating Stripe subscription billing with Phoe
 pubDate: 2026-01-25
 tags: ["building-in-public", "engineering", "elixir", "phoenix", "liveview", "stripe"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 ---
 
 I recently added Stripe subscription billing to [CloudNori](/projects/cloudnori), an anti-fragility stock screener built with Phoenix and LiveView. The application screens stocks for survival characteristics rather than chasing growth narratives—inspired by Nassim Taleb's work on antifragility. You can try it live at [cloudnori.com](https://cloudnori.com).

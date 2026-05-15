@@ -4,7 +4,7 @@ description: "Navigating the upgrade from Rails 6.0 to 6.1, dealing with Sprocke
 pubDate: 2026-01-26
 tags: ["building-in-public", "engineering", "rails-upgrade", "ruby"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 image: "/images/blog/rails-upgrade-phase-5-sprockets.png"
 ---
 

@@ -4,7 +4,7 @@ description: "A weekend deep-dive into self-hosting LLMs for coding assistance, 
 pubDate: 2026-02-08
 tags: ["building-in-public", "engineering", "ollama", "llm", "self-hosted"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 image: "/images/blog/run-gpt-20b-ollama-tailscale-opencode.png"
 ---
 
@@ -126,6 +126,7 @@ That's it. One command, and the server is accessible from all my authenticated d
 This is the piece that transforms a raw Ollama instance into something Claude Code-like. Opencode is an agent runner (reads files, runs bash, edits code) that connects to Ollama's OpenAI-compatible API.
 
 The mental model:
+
 - **Ollama** = inference server that exposes an OpenAI-compatible REST API at `/v1`
 - **Opencode** = agentic client that talks to Ollama (or other providers) to perform coding tasks
 

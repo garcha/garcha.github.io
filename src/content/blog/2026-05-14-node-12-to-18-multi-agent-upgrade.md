@@ -6,6 +6,7 @@ tags: ["building-in-public", "engineering", "ai-agents", "node-upgrade", "react"
 draft: false
 generatedBy: "agent-edited"
 image: "/images/blog/multi_agent.png"
+agentContext: "Agent Teams: Benefits and how to use them"
 ---
 
 ## Context

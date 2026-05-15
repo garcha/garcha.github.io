@@ -4,7 +4,7 @@ description: "A complete guide to upgrading a legacy Rails application from vers
 pubDate: 2026-01-26
 tags: ["building-in-public", "engineering", "rails", "rails-upgrade", "legacy-code"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 image: "/images/blog/rails-upgrade-series-hero.png"
 ---
 

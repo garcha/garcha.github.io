@@ -4,7 +4,7 @@ description: "Navigating Zeitwerk timing issues, Airbrake gem incompatibilities,
 pubDate: 2026-01-26
 tags: ["building-in-public", "engineering", "rails-upgrade", "ruby"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 image: "/images/blog/rails-upgrade-phase-6-rails7.png"
 ---
 

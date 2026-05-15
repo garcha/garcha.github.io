@@ -4,7 +4,7 @@ description: "How we added OpenAPI 3.0 documentation to a Rails app using rswag,
 pubDate: 2026-02-10
 tags: ["building-in-public", "engineering", "rails", "api"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 ---
 
 We recently added API documentation to our Rails application. The app has multiple API namespaces serving different use cases: a partner API, public endpoints, and internal endpoints.

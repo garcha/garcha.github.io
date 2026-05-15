@@ -4,7 +4,7 @@ description: "Completing the Rails upgrade journey from 4.2 to 8.0: navigating R
 pubDate: 2026-01-26
 tags: ["building-in-public", "engineering", "rails-upgrade", "ruby"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 image: "/images/blog/rails-upgrade-phase-8-final.png"
 ---
 

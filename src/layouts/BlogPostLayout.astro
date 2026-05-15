@@ -9,7 +9,7 @@ interface Props {
   pubDate: Date;
   updatedDate?: Date;
   tags?: string[];
-  generatedBy?: 'human' | 'agent';
+  generatedBy?: 'human' | 'agent' | 'agent-edited';
   agentContext?: string;
   image?: string;
 }
@@ -60,6 +60,12 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('en-US', {
           {generatedBy === 'agent' && (
             <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-medium">
               AI-Generated Update
+            </span>
+          )}
+
+          {generatedBy === 'agent-edited' && (
+            <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-xs font-medium">
+              AI + Human
             </span>
           )}
         </div>
