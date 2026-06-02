@@ -2,7 +2,7 @@
 title: "Idealeet"
 tagline: "AI-powered landing page generation with built-in analytics"
 description: "Generate high-converting landing pages using AI, with integrated analyst insights and lead capture functionality."
-status: "active"
+status: "retired"
 featured: true
 order: 2
 techStack: ["Elixir", "Phoenix LiveView", "Ecto", "OpenAI API", "PostgreSQL", "Tailwind CSS", "Claude Code"]

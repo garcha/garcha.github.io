@@ -7,7 +7,7 @@ interface Props {
   title: string;
   tagline: string;
   description: string;
-  status: 'active' | 'beta' | 'development' | 'archived';
+  status: 'active' | 'beta' | 'development' | 'archived' | 'retired';
   techStack: string[];
   category: string;
   url?: string;
@@ -40,6 +40,7 @@ const statusColors = {
   beta: { bg: 'bg-blue-100', text: 'text-blue-700', label: 'Beta' },
   development: { bg: 'bg-yellow-100', text: 'text-yellow-700', label: 'In Development' },
   archived: { bg: 'bg-gray-100', text: 'text-gray-700', label: 'Archived' },
+  retired: { bg: 'bg-red-100', text: 'text-red-700', label: 'Retired' },
 };
 
 const statusStyle = statusColors[status];

@@ -2,7 +2,7 @@
 title: "cloudnori Stock Screener"
 tagline: "Taleb inspired stock screener focused on survival and avoiding ruin"
 description: "A financial screening tool that evaluates stocks based on anti-fragility principles, focusing on what can kill a company rather than what can make it succeed."
-status: "development"
+status: "active"
 featured: false
 order: 5
 techStack: ["Elixir", "Phoenix", "LiveView", "PostgreSQL", "Tailwind CSS", "Oban", "SEC EDGAR API", "Massive.com API"]

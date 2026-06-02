@@ -22,7 +22,7 @@ const projectsCollection = defineCollection({
     title: z.string(),
     tagline: z.string(),
     description: z.string(),
-    status: z.enum(['active', 'beta', 'development', 'archived']),
+    status: z.enum(['active', 'beta', 'development', 'archived', 'retired']),
     featured: z.boolean().default(false),
     order: z.number().default(0),
     url: z.string().url().optional(),
