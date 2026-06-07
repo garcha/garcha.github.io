@@ -18,7 +18,7 @@ const highlightedSlugs = [
 
 const allPosts = await getCollection("blog", ({ data }) => data.draft !== true);
 
-const highlightedPosts = highlightedSlugs.map((slug) => allPosts.find((post) => post.slug === slug)).filter(Boolean);
+const highlightedPosts = highlightedSlugs.map((slug) => allPosts.find((post) => post.id === slug)).filter(Boolean);
 
 const formatDate = (date: Date) => {
   return date.toLocaleDateString("en-US", {
@@ -36,7 +36,7 @@ const formatDate = (date: Date) => {
     {
       highlightedPosts.map((post) => (
         <a
-          href={`/blog/${post.slug}`}
+          href={`/blog/${post.id}`}
           class="group block p-6 bg-white border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all"
         >
           <time datetime={post.data.pubDate.toISOString()} class="text-sm text-gray-400">
