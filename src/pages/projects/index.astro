@@ -32,7 +32,7 @@ const sortedProjects = allProjects.sort((a, b) => a.data.order - b.data.order);
               tagline={project.data.tagline}
               description={project.data.description}
               status={project.data.status}
-              slug={project.slug}
+              slug={project.id}
               techStack={project.data.techStack}
               category={project.data.category}
             />

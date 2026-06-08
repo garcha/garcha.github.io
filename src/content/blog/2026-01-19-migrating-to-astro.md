@@ -4,7 +4,7 @@ description: "How I rebuilt my engineering portfolio using Astro, content collec
 pubDate: 2026-01-19
 tags: ["building-in-public", "engineering", "astro", "web-development"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 ---
 
 ## Context
@@ -18,6 +18,7 @@ More importantly, I wanted to start building in public. That meant adding a blog
 The goal was straightforward: migrate to a modern framework that would make content management easier while keeping what worked about the old site.
 
 Requirements:
+
 - Fast, static site generation
 - Simple content management for blog posts and projects
 - Keep the existing design aesthetic
@@ -37,6 +38,7 @@ The biggest win was setting up two content collections - one for blog posts, one
 
 **Projects Section**
 I documented three active projects:
+
 - **White Label Reviews (ProspectWise)**: A reputation management platform built with Rails, React, and AWS Lambda
 - **Idealeet**: An AI landing page generator using Elixir, Phoenix LiveView, and OpenAI
 - **Lidger**: A personal life management dashboard with Rails and Hotwire
@@ -45,6 +47,7 @@ Each project page includes the problem, solution, tech stack, and current status
 
 **Engineering Philosophy**
 I added six cards describing how I think about software:
+
 - Systems Over Tickets
 - Clarity From Ambiguity
 - Trade-offs Over Perfection
@@ -69,6 +72,7 @@ Blog posts need good typography. The @tailwindcss/typography plugin handles that
 
 **Component Structure**
 I initially tried to keep everything in one massive Astro file. Bad idea. I broke the homepage into distinct components:
+
 - Hero
 - About (Engineering Philosophy)
 - CoreExperience
@@ -110,6 +114,7 @@ Writing about this migration forced me to articulate why I made certain choices.
 ## Next Steps
 
 The foundation is solid now. Next up:
+
 - Write more blog posts documenting learning
 - Keep iterating on the projects and writing about what I learn
 

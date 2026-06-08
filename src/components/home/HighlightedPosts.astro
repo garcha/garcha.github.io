@@ -11,14 +11,14 @@ const { bg = "white" } = Astro.props;
 
 // Manually selected highlighted posts (edit these slugs to change which posts are featured)
 const highlightedSlugs = [
+  "2026-06-07-git-worktrees-for-parallel-ai-agents",
   "2026-01-26-rails-upgrade-series-from-rails-4-to-8",
   "2026-01-19-automating-documentation-with-ai",
-  "2026-01-19-lidger-from-rails-react-to-phoenix-liveview",
 ];
 
 const allPosts = await getCollection("blog", ({ data }) => data.draft !== true);
 
-const highlightedPosts = highlightedSlugs.map((slug) => allPosts.find((post) => post.slug === slug)).filter(Boolean);
+const highlightedPosts = highlightedSlugs.map((slug) => allPosts.find((post) => post.id === slug)).filter(Boolean);
 
 const formatDate = (date: Date) => {
   return date.toLocaleDateString("en-US", {
@@ -36,7 +36,7 @@ const formatDate = (date: Date) => {
     {
       highlightedPosts.map((post) => (
         <a
-          href={`/blog/${post.slug}`}
+          href={`/blog/${post.id}`}
           class="group block p-6 bg-white border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all"
         >
           <time datetime={post.data.pubDate.toISOString()} class="text-sm text-gray-400">

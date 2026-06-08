@@ -4,7 +4,7 @@ description: "Launching a new portfolio site and committing to building projects
 pubDate: 2026-01-19
 tags: ["meta", "projects", "building-in-public"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 ---
 
 ## A Fresh Start

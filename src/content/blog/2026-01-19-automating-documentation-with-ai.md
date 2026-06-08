@@ -13,6 +13,7 @@ agentContext: "Explaining the blog agent setup and workflow for documenting deve
 Shipping code already consumes the scarce resource: focused time. Writing about that code is a second job layered on top of the first. It means reopening mental context, reconstructing decisions, and translating half-formed engineering thoughts into clean prose. That cost is real.
 
 The result is predictable:
+
 - You finish a feature.
 - You tell yourself you'll write about it later.
 - "Later" never comes.
@@ -20,6 +21,7 @@ The result is predictable:
 Not because you don't care—but because documentation competes directly with momentum. Every post requires a full context switch. Every context switch drains energy. Over time, the habit collapses.
 
 What I actually wanted was this:
+
 - Stay in flow while building.
 - Capture intent and decisions as they happen.
 - Let something else do the slow, mechanical work of turning that into words.
@@ -53,7 +55,7 @@ I give it context about what I think is worth documenting, and it:
 2. Extracts the story: the goal, the approach, what went wrong, what changed
 3. Writes a blog post in first person, in my voice, focused on process and learning
 4. Saves it to the correct location with proper frontmatter
-5. Marks it as `generatedBy: "agent"` for transparency
+5. Marks it as `generatedBy: "agent-edited"` for transparency
 
 The agent doesn't write marketing copy or hype. It writes honest engineering logs - what I was trying to do, what assumptions I made, where things broke, what I learned.
 
@@ -155,7 +157,7 @@ The current stack:
 
 This is a meta experiment. I'm using AI not to replace writing, but to reduce the friction that prevents writing from happening at all.
 
-The posts the agent writes aren't perfect. But they're better than the posts I *don't* write because I'm too tired or busy.
+The posts the agent writes aren't perfect. But they're better than the posts I _don't_ write because I'm too tired or busy.
 
 The key is treating the agent as a tool, not a replacement. I provide the context, the judgment about what's worth sharing, and the editorial oversight. The agent provides the structure and the prose.
 

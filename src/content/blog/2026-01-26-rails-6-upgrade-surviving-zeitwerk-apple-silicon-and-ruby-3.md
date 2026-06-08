@@ -4,7 +4,7 @@ description: "A detailed account of upgrading a Rails 5.2 app to 6.0 and Ruby 3.
 pubDate: 2026-01-26
 tags: ["building-in-public", "engineering", "rails", "ruby", "upgrade"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 image: "/images/blog/rails-upgrade-phase-4-zeitwerk.png"
 ---
 

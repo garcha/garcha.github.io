@@ -2,13 +2,13 @@
 # Blog Post Template for Agent Authoring
 # Copy this file and rename to YYYY-MM-DD-slug.md
 
-title: ""                    # Post title
-description: ""              # 1-2 sentence summary
-pubDate: YYYY-MM-DD          # Publication date
-tags: []                     # lowercase, e.g. ["rails", "architecture"]
-draft: false                 # Set true to hide from listing
-generatedBy: "agent"         # "human" or "agent"
-agentContext: ""             # What prompted this update
+title: "" # Post title
+description: "" # 1-2 sentence summary
+pubDate: YYYY-MM-DD # Publication date
+tags: [] # lowercase, e.g. ["rails", "architecture"]
+draft: false # Set true to hide from listing
+generatedBy: "agent-edited" # "human" or "agent"
+agentContext: "" # What prompted this update
 ---
 
 ## What I'm Working On

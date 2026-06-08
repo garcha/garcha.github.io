@@ -4,7 +4,7 @@ description: "Navigating PaperTrail compatibility, Zeitwerk's stricter autoloadi
 pubDate: 2026-01-26
 tags: ["building-in-public", "engineering", "rails-upgrade", "ruby"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 image: "/images/blog/rails-upgrade-phase-7-stricter.png"
 ---
 
