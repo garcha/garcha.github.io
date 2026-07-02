@@ -1,15 +1,15 @@
 ---
-title: "Building a RAG Ask Feature for the Guru Granth Sahib - Only answer with text references"
-description: "How I built a citation grounded Q&A assistant for studying Sri Guru Granth Sahib in a private Rails 8 app: hybrid retrieval, a strict fidelity system prompt, and a question DB that saves every answer permanently."
+title: "Building a RAG Ask Feature for the Sri Guru Granth Sahib Ji - Only answer with text references"
+description: "How I built a citation grounded Q&A assistant for studying Sri Guru Granth Sahib Ji in a private Rails 8 app: hybrid retrieval, a strict fidelity system prompt, and a question DB that saves every answer permanently."
 pubDate: 2026-07-01
 tags: ["building-in-public", "engineering", "rag", "rails", "pgvector", "sikhi"]
 draft: false
-generatedBy: "agent"
+generatedBy: "agent-edited"
 ---
 
 ## Context
 
-Daily Sikhi is a private, Rails 8 app I built to study the Sri Guru Granth Sahib (SGGS) — the Sikh scripture, 1,430 Angs (pages). The goal was a clean side-by-side reader: Gurmukhi script, transliteration, and English translation together on one screen. The source text is the "SBS (Uni)" docx from gurbanifiles.net — translation by Dr. Sant Singh Khalsa, transliteration and database by Dr. Kulbir S. Thind. The app is access-controlled for now because permission from the rights holders is still pending.
+[Daily Sikhi](https://dailysikhi.com) is a Rails 8 app I built to study the Sri Guru Granth Sahib Ji (SGGS) — the Sikh scripture, 1,430 Angs (pages). The goal was a clean side-by-side reader: Gurmukhi script, transliteration, and English translation together on one screen. The source text is the "SBS (Uni)" docx from gurbanifiles.net — translation by Dr. Sant Singh Khalsa, transliteration and database by Dr. Kulbir S. Thind. The app is access-controlled for now because permission from the rights holders is still pending.
 
 Once the reader worked, I wanted to go further: a semantic search and a grounded Q&A assistant that could answer questions like "What does Gurbani say about ego?" by retrieving and citing relevant passages — without ever inventing an interpretation. That second constraint turned out to be the interesting engineering problem.
 
@@ -97,6 +97,8 @@ The through-line across every decision here was fidelity over cleverness. Exact 
 The RAG pattern itself is not new. What made this feel different was the subject matter. Getting the model to stay in its lane when the corpus is scripture — where improvised commentary is not just unhelpful but arguably disrespectful — required real care. The relevance gate tuning was the most iterative part of the whole build, more so than the retrieval or the data ingestion.
 
 The phrasing I kept coming back to in the system prompt: "you point to the Guru's words, you do not speak for them." That constraint, taken seriously, shapes every technical decision downstream.
+
+For how I got this whole retrieval layer into production without pandoc, an OpenAI key, or any manual steps, see the follow-up: [Shipping Embeddings as Seed Data: One-Command Production Deploys](/blog/2026-07-01-shipping-embeddings-as-seed-data).
 
 ## Next Steps
 
