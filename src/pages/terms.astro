@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lastUpdated = 'July 5, 2026';
+---
+
+<BaseLayout
+  title="Terms of Use"
+  description="Terms of Use for garcha.github.io"
+>
+  <div class="container max-w-screen-md mx-auto px-4 py-16">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">Terms of Use</h1>
+    <p class="text-sm text-gray-500 mb-10">Last updated: {lastUpdated}</p>
+
+    <div class="prose prose-gray max-w-none">
+      <p>
+        By accessing this website you agree to the following terms. If you do not agree, please do not
+        use the site.
+      </p>
+
+      <h2>Content</h2>
+      <p>
+        All content on this site — including blog posts, project descriptions, and other written material —
+        is authored by Jaspreet (Jazz) Garcha and is provided for informational purposes only. Opinions
+        expressed are my own and do not represent any employer or client.
+      </p>
+
+      <h2>Intellectual Property</h2>
+      <p>
+        Unless otherwise stated, all content is &copy; Jaspreet (Jazz) Garcha. You may quote or reference
+        content with attribution and a link back to the original page. You may not reproduce or republish
+        content in full without prior written permission.
+      </p>
+      <p>
+        Code samples published on this site are provided under the{' '}
+        <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>{' '}
+        unless otherwise noted — you're free to use them in your own projects.
+      </p>
+
+      <h2>No Warranties</h2>
+      <p>
+        This site and its content are provided "as is" without any warranties of any kind. I make no
+        guarantees that the content is accurate, complete, or up to date. Use any information here at
+        your own discretion.
+      </p>
+
+      <h2>External Links</h2>
+      <p>
+        This site may link to third-party websites. I am not responsible for the content or privacy
+        practices of those sites.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        I may update these terms from time to time. Continued use of the site after changes constitutes
+        acceptance of the updated terms.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions? Email me at{' '}
+        <a href="mailto:jaspreet+portfolio@garcha.com">jaspreet+portfolio@garcha.com</a>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

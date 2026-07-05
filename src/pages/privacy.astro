@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lastUpdated = 'July 5, 2026';
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description="Privacy Policy for garcha.github.io"
+>
+  <div class="container max-w-screen-md mx-auto px-4 py-16">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
+    <p class="text-sm text-gray-500 mb-10">Last updated: {lastUpdated}</p>
+
+    <div class="prose prose-gray max-w-none">
+      <p>
+        This site is a personal portfolio and blog operated by Jaspreet (Jazz) Garcha. I respect your privacy
+        and am committed to being transparent about how I collect and use data.
+      </p>
+
+      <h2>Information I Collect</h2>
+      <p>
+        I do not collect any personally identifiable information directly. However, this site uses
+        <a href="https://posthog.com" target="_blank" rel="noopener noreferrer">PostHog</a> for
+        product analytics to understand how visitors interact with the site (e.g. page views, session duration).
+        PostHog may collect:
+      </p>
+      <ul>
+        <li>Pages visited and time spent</li>
+        <li>Referring URLs</li>
+        <li>Browser type, operating system, and screen size</li>
+        <li>Approximate geographic location (country/region, derived from IP)</li>
+        <li>Click and scroll interactions</li>
+      </ul>
+      <p>
+        Analytics are collected in a privacy-friendly configuration — individual visitors are not profiled
+        unless they identify themselves.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        PostHog sets a cookie to distinguish unique sessions. No other cookies are used on this site.
+        You can disable cookies in your browser settings or use a content blocker to opt out of analytics.
+      </p>
+
+      <h2>Third-Party Services</h2>
+      <p>This site uses the following third-party services:</p>
+      <ul>
+        <li><strong>PostHog</strong> — analytics (<a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>)</li>
+        <li><strong>Google Fonts</strong> — typography (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>)</li>
+        <li><strong>GitHub Pages</strong> — hosting (<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Privacy Policy</a>)</li>
+      </ul>
+
+      <h2>Data Retention</h2>
+      <p>
+        Analytics data is retained according to PostHog's data retention policies. I do not store any
+        personal data on my own infrastructure.
+      </p>
+
+      <h2>Your Rights</h2>
+      <p>
+        If you have questions about data collected via PostHog, you can reach out to me directly and I will
+        do my best to assist. You may also opt out of analytics by using a browser extension such as uBlock
+        Origin or disabling JavaScript.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For any privacy-related questions, email me at{' '}
+        <a href="mailto:jaspreet+portfolio@garcha.com">jaspreet+portfolio@garcha.com</a>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
