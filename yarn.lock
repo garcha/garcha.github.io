@@ -101,17 +101,17 @@
     fontkitten "^1.0.3"
 
 "@emnapi/core@^1.11.1":
-  version "1.11.2"
-  resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.11.2.tgz#fab0a0f3c492d11f5a9ac9065d0d73955ee1c1c9"
-  integrity sha512-TC8MkTuZUtcTSiFeuC0ksCh9QIJ5+F21MvZ4Wn4ORfYaFJ/0dsiudv5tVkejgwZlwQ39jL9WWDe2lz8x0WglOA==
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.11.1.tgz#b9e1064f3a6b1631e241e638eb48d736bfd372a6"
+  integrity sha512-RSvbQmHzdKzNsLYa/wHrbc3KN4sYLKAdPZxqiM2HATqv/SBk2/ENSHpvXGaLOMcsAyz0poEGqkmmKYG3OWiJEQ==
   dependencies:
     "@emnapi/wasi-threads" "1.2.2"
     tslib "^2.4.0"
 
 "@emnapi/runtime@^1.11.1", "@emnapi/runtime@^1.7.0":
-  version "1.11.2"
-  resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.11.2.tgz#eb22f04d76febfdf4f87fdaff54c8a53f6bf0dbd"
-  integrity sha512-kyOl3X0DuTiT1h2ft8r2fYO8JYtU9a9Xis/zBSiGArNaagCOWx90N1k2wxp18czFDH+OgcWGb5ZP/XMt3dcyPA==
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/@emnapi/runtime/-/runtime-1.11.1.tgz#58f1f3d5d81a9b12f793ab688c96371901027c24"
+  integrity sha512-vgj7R3y3Wgx24IQaGPA/R6YFXLHVMOZ0uVEyIQPaWs+rd1AzfEMXlAC22FYwO1XkKR6NPsq7mUandH8oIRdZFw==
   dependencies:
     tslib "^2.4.0"
 
@@ -923,9 +923,9 @@
     "@types/unist" "*"
 
 "@types/node@*":
-  version "26.1.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-26.1.0.tgz#aa85f0727fc5611347091c478341c63650903439"
-  integrity sha512-O0A1G3xPGy4w7AgQdAQYUlQ+BKk2Oovw8eRpofyp5KdBZULnbe+WqaOVNrm705SHphCiG4XHsACrSmPu1f+Kgw==
+  version "26.0.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-26.0.1.tgz#4a60e2c7a6d68bd261e265f8983bfe1601263ce3"
+  integrity sha512-fc3KiUoBt6kie0N9bIW3E47vZsuaMf0PM2AaUpLCLT0s/LvX1nxAim6Fc049cNxODPpGm6qRAuUOB86SkRuPQw==
   dependencies:
     undici-types "~8.3.0"
 
@@ -2343,9 +2343,9 @@ p-timeout@^6.1.2:
   integrity sha512-MyIV3ZA/PmyBN/ud8vV9XzwTrNtR4jFrObymZYnZqMmW0zA8Z17vnT0rBgFE/TlohB+YCHqXMgZzb3Csp49vqg==
 
 package-manager-detector@^1.6.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/package-manager-detector/-/package-manager-detector-1.7.0.tgz#0a6d6d3856627b8ac9331f95fc891ea81247aafd"
-  integrity sha512-xg1eHpwYL/D/HEdWw2goFZP6vV0FH7W+PZ5rFkGjdIDLtxq7EkzBUeT3m+lndYCt8wKbmofUu1MUdMCXkCk9ZQ==
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/package-manager-detector/-/package-manager-detector-1.6.0.tgz#70d0cf0aa02c877eeaf66c4d984ede0be9130734"
+  integrity sha512-61A5ThoTiDG/C8s8UMZwSorAGwMJ0ERVGj2OjoW5pAalsNOg15+iQiPzrLJ4jhZ1HJzmC2PIHT2oEiH3R5fzNA==
 
 parse-latin@^7.0.0:
   version "7.0.0"
@@ -2382,9 +2382,9 @@ picomatch@^2.0.4:
   integrity sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA==
 
 picomatch@^4.0.2, picomatch@^4.0.3, picomatch@^4.0.4:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.5.tgz#51ea57a17d86f605f81039595fbc40ed06a55fab"
-  integrity sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.4.tgz#fd6f5e00a143086e074dffe4c924b8fb293b0589"
+  integrity sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==
 
 postcss-selector-parser@6.0.10:
   version "6.0.10"
