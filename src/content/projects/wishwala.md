@@ -4,7 +4,7 @@ tagline: "AI-powered wish generator for every occasion"
 description: "A personalized wish generator that uses AI to create heartfelt messages for birthdays, anniversaries, and other special occasions."
 status: "retired"
 featured: false
-order: 4
+order: 6
 techStack: ["Elixir", "Phoenix", "LiveView", "PostgreSQL", "Tailwind CSS", "OpenAI", "Oban"]
 category: "personal"
 url: "https://wishwala.com"
