@@ -13,10 +13,11 @@
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.11",
+    "posthog-js": "^1.396.6",
     "tailwindcss": "^4.1.18"
   },
   "volta": {
-    "node": "20.20.0",
+    "node": "24.3.0",
     "yarn": "4.14.1"
   }
 }

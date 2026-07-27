@@ -4,7 +4,7 @@ tagline: "AI-powered landing page generation with built-in analytics"
 description: "Generate high-converting landing pages using AI, with integrated analyst insights and lead capture functionality."
 status: "retired"
 featured: true
-order: 2
+order: 5
 techStack: ["Elixir", "Phoenix LiveView", "Ecto", "OpenAI API", "PostgreSQL", "Tailwind CSS", "Claude Code"]
 category: "saas"
 url: "https://idealeet.com/"

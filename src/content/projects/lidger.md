@@ -4,7 +4,7 @@ tagline: "Personal dashboard for life management"
 description: "A comprehensive personal dashboard combining OKR tracking, task management, health metrics, and habit tracking in one unified interface."
 status: "active"
 featured: true
-order: 3
+order: 2
 techStack: ["Elixir", "Phoenix", "Ecto", "LiveView", "PostgreSQL", "Chart.js", "Tailwind CSS", "Claude Code"]
 category: "personal"
 url: "https://lidger.com/"

@@ -29,7 +29,7 @@ I chose hybrid retrieval — Postgres full-text search plus pgvector cosine simi
 score = 1/(k + rank_fts) + 1/(k + rank_vec)   (k = 60)
 ```
 
-Two independent signals for surfacing the right shabad: exact-term matching (FTS) and semantic meaning (vector). RRF doesn't require calibrated scores from either side; it just combines ordinal ranks, which makes simple to implement. This recovers most of what a dedicated reranker would add, without introducing a second vendor or a second API round-trip.
+Two independent signals for surfacing the right shabad: exact-term matching (FTS) and semantic meaning (vector). RRF doesn't require calibrated scores from either side; it just combines ordinal ranks, which makes it simple to implement. This recovers most of what a dedicated reranker would add, without introducing a second vendor or a second API round-trip.
 
 Embeddings use OpenAI `text-embedding-3-large` at 3072 dimensions. One chunk per shabad: the English translation with a light raag/author prefix. Gurmukhi is deliberately kept out of the embedded vector — English embedding models handle it poorly, and it lives in a separate column for display only.
 
@@ -88,7 +88,7 @@ The reason this works cleanly here — and wouldn't in many other RAG applicatio
 
 **Raags.** The SGGS is organized by raag (musical mode). I added a reference of around 30 raags with their traditional moods — Aasaa (hope), Maajh (longing in separation), Maaroo (courage and fearless truth). Raags don't have literal translations; the emotional mood is the meaningful context. This turns out to matter for retrieval: knowing a shabad is in Maaroo tells you something about its tenor before you've read a word.
 
-**Testing the AI layer.** The test suite is hermetic — no real OpenAI calls. Minitest 6 had removed `Object#stub`, so I added a small block-scoped stub shim. Tests verify: the question DB replay makes zero API calls on the second ask; the refusal gate fires on off-topic questions; and citation flagging catches hallucinated Ang references.
+**Testing the AI layer.** The test suite is fully stubbed — no real OpenAI calls. Tests verify: the question DB replay makes zero API calls on the second ask; the refusal gate fires on off-topic questions; and citation flagging catches hallucinated Ang references.
 
 ## What I Learned
 

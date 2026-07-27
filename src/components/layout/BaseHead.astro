@@ -13,6 +13,7 @@ const {
   canonicalUrl = Astro.url.href
 } = Astro.props;
 
+
 const siteName = 'Jaspreet (Jazz) Garcha';
 const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 ---
@@ -52,3 +53,21 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 
 <!-- Generator -->
 <meta name="generator" content={Astro.generator} />
+
+<!-- PostHog Analytics -->
+<script>
+  import posthog from 'posthog-js';
+
+  const key = import.meta.env.PUBLIC_POSTHOG_KEY;
+  const host = import.meta.env.PUBLIC_POSTHOG_HOST ?? 'https://us.i.posthog.com';
+
+  if (key) {
+    posthog.init(key, {
+      api_host: host,
+      defaults: '2026-05-30',
+      person_profiles: 'identified_only',
+      capture_pageview: true,
+      capture_pageleave: true,
+    });
+  }
+</script>
