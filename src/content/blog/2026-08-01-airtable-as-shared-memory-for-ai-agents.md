@@ -42,7 +42,7 @@ I went with **Airtable as the shared data layer**: the agent reaches it over MCP
 - **Work Tasks** area for work items.
 - **Tasks** — a _single_ table holding every task, linked to its parent via one link column per parent table.
 
-That last choice is the interesting one. In Airtable, a link field points to exactly one table — so a unified Tasks table means one link column per parent, each task filling whichever applies. It works, but it's a visible seam. The cleaner design is a single "Areas" table with a Category field, so Tasks needs only one link column and the structured visual surface can group across everything cleanly. I took the more-tables path anyway because job applications genuinely have a different shape. The tradeoff: cross-area views now lean on filters rather than a single group-by.
+That last choice is the interesting one. In Airtable, a link field points to exactly one table — so a unified Tasks table means one link column per parent, each task filling whichever applies. It works, but it's a visible seam. The cleaner design is a single "Areas" table with a Category field, so Tasks needs only one link column and the structured visual surface can group across everything cleanly. The tradeoff: cross-area views now lean on filters rather than a single group-by.
 
 On top of the Tasks table I built a Kanban Interface — the "All Tasks Board" — grouped by a `Stage` single-select. Because every task lives in one table, they all appear on one structured visual surface regardless of area. That's the payoff of the unified-tasks decision: the combined view is free.
 
@@ -69,3 +69,4 @@ Once you frame the problem that way, the tool question mostly answers itself. Yo
 
 - Consolidate to the unified "Areas" model and clean up the duplicate `Stage` options in the UI.
 - Decide whether this stays a personal command center or turns into something worth handing to other people. The architecture is general; the packaging is the open question.
+- Run structured analysis on the base over time — blockers by area, stage transitions, project velocity. Because the data is typed and normalized rather than buried in chat logs, these reduce to filter-and-aggregate queries. The same structure that made agent writes reliable is what makes retrospective reporting cheap.
