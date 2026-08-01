@@ -1,132 +1,142 @@
 ---
-import Section from '../ui/Section.astro';
-import SectionHeader from '../ui/SectionHeader.astro';
+import Section from "../ui/Section.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
 
 interface Props {
-  bg?: 'white' | 'gray';
+  bg?: "white" | "gray";
 }
 
-const { bg = 'white' } = Astro.props;
+const { bg = "white" } = Astro.props;
 ---
 
 <Section bg={bg}>
-  <SectionHeader
-    title="Work Experience"
-    subtitle="Professional history and accomplishments"
-  />
+  <SectionHeader title="Work Experience" subtitle="Professional history and accomplishments" />
 
   <div class="space-y-12">
-      <!-- ProspectWise - Senior Software Engineer -->
-      <div class="border-l-4 border-blue-500 pl-6">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
-          <h3 class="text-xl font-semibold text-gray-900">ProspectWise</h3>
-          <span class="text-sm text-gray-500">Senior Software Engineer</span>
-        </div>
-        <p class="text-sm text-gray-400 mb-3">June 2019 – Present · 5+ years</p>
-        <ul class="space-y-2 text-gray-600">
-          <li class="flex items-start gap-2">
-            <span class="text-blue-500 mt-1">•</span>
-            Spearheaded the maintenance of a robust Ruby on Rails application handling over a million daily requests.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-blue-500 mt-1">•</span>
-            Developed greenfield projects, collaborating closely with the CTO. Involved in comprehensive planning, architectural design, and successful implementation of applications.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-blue-500 mt-1">•</span>
-            Played a pivotal role in managing partner relationships, effectively communicating with external stakeholders to elicit key requirements for product enhancements.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-blue-500 mt-1">•</span>
-            Translated stakeholder requirements into actionable features and improvements, bridging the gap between business needs and technical implementation.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-blue-500 mt-1">•</span>
-            Diagnosed and addressed memory leaks, demonstrating a proactive approach to maintaining application health.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-blue-500 mt-1">•</span>
-            Achieved a 50% improvement in response time, showcasing a commitment to optimizing application performance.
-          </li>
-        </ul>
+    <!-- ProspectWise - Senior Software Engineer -->
+    <div class="border-l-4 border-blue-500 pl-6">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
+        <h3 class="text-xl font-semibold text-gray-900">ProspectWise</h3>
+        <span class="text-sm text-gray-500">Senior Software Engineer</span>
       </div>
+      <p class="text-sm text-gray-400 mb-3">June 2019 – Present · 7+ years</p>
+      <ul class="space-y-2 text-gray-600">
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 mt-1">•</span>
+          Own day-to-day technical and product operations for a licensed Ruby on Rails app, while consulting the CTO on major
+          architecture and infrastructure, resulting in smoother operations and quicker decisions.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 mt-1">•</span>
+          Serve as the main contact for the company’s primary customer, handling production support, feature requests, and
+          delivery priorities, then turning those requests into technical plans and production features.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 mt-1">•</span>
+          Designed and built an idempotent daily sync that imports and updates third-party reviews for 25,000 customer accounts
+          while preventing duplicates and tracking data completeness.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 mt-1">•</span>
+          Scaled the platform from roughly 8,000 to 25,000 customer accounts, supporting growth to five million requests per
+          day.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 mt-1">•</span>
+          Maintain p95 response times below 90 ms across six application servers, keeping the application responsive and stable
+          during peak business hours.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 mt-1">•</span>
+          Moved resource-heavy reporting and automated smoke tests to AWS Lambda, reducing load on the main Rails application.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 mt-1">•</span>
+          Led the application upgrade from Rails 4 to Rails 8 while continuing regular feature delivery.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 mt-1">•</span>
+          Added New Relic monitoring to identify bottlenecks, optimize queries, and track production performance.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 mt-1">•</span>
+          Replaced Amplitude with PostHog after investigating bot traffic and testing application-level IP filtering.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-blue-500 mt-1">•</span>
+          Built a self-hosted sentiment analysis service using Ollama and Llama, keeping customer data private while identifying
+          issues and recommended actions from customer reviews.
+        </li>
+      </ul>
+    </div>
 
-      <!-- ProspectWise - Software Engineer -->
-      <div class="border-l-4 border-green-500 pl-6">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
-          <h3 class="text-xl font-semibold text-gray-900">ProspectWise</h3>
-          <span class="text-sm text-gray-500">Software Engineer</span>
-        </div>
-        <p class="text-sm text-gray-400 mb-3">Jan 2017 – June 2019 · 2.5 years</p>
-        <ul class="space-y-2 text-gray-600">
-          <li class="flex items-start gap-2">
-            <span class="text-green-500 mt-1">•</span>
-            Developed, debugged multiple Ruby on Rails and Rails APIs.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-green-500 mt-1">•</span>
-            Developed, debugged multiple ReactJS (Classes, Hooks) applications with Mobx, Redux, and Apollo/GraphQL.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-green-500 mt-1">•</span>
-            Monitored application performance, fixed memory, and performance issues.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-green-500 mt-1">•</span>
-            Built microservices on AWS Lambda for testing, and reporting.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-green-500 mt-1">•</span>
-            Wrote SQL queries for reporting.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-green-500 mt-1">•</span>
-            Consumed APIs with thousands of records daily.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-green-500 mt-1">•</span>
-            Adopted agile best practices and delivered iterative features and API implementations.
-          </li>
-        </ul>
+    <!-- ProspectWise - Software Engineer -->
+    <div class="border-l-4 border-green-500 pl-6">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
+        <h3 class="text-xl font-semibold text-gray-900">ProspectWise</h3>
+        <span class="text-sm text-gray-500">Software Engineer</span>
       </div>
+      <p class="text-sm text-gray-400 mb-3">Jan 2017 – June 2019 · 2.5 years</p>
+      <ul class="space-y-2 text-gray-600">
+        <li class="flex items-start gap-2">
+          <span class="text-green-500 mt-1">•</span>
+          Built features with APIs and a React frontend using Apollo and GraphQL, delivering features that automated manual
+          workflows.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-green-500 mt-1">•</span>
+          Improved application reliability by identifying performance bottlenecks, resolving production issues, and reducing
+          failures.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-green-500 mt-1">•</span>
+          Replaced ActiveRecord queries with SQL, improving application performance.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-green-500 mt-1">•</span>
+          Adopted agile best practices and delivered iterative features and API implementations.
+        </li>
+      </ul>
+    </div>
 
-      <!-- CapLinked -->
-      <div class="border-l-4 border-purple-500 pl-6">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
-          <h3 class="text-xl font-semibold text-gray-900">CapLinked</h3>
-          <span class="text-sm text-gray-500">QA to Web Developer</span>
-        </div>
-        <p class="text-sm text-gray-400 mb-3">Nov 2013 – Dec 2016 · 3 years</p>
-        <ul class="space-y-2 text-gray-600">
-          <li class="flex items-start gap-2">
-            <span class="text-purple-500 mt-1">•</span>
-            Implemented features, resolved bugs in Ruby on Rails web app.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-purple-500 mt-1">•</span>
-            Co-Authored CapLinked-API gem.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-purple-500 mt-1">•</span>
-            Built an API with the development team on Ruby Grape.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-purple-500 mt-1">•</span>
-            Wrote RSpec, Cucumber tests to improve code coverage.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-purple-500 mt-1">•</span>
-            Code reviewed & assurance of best practices were used.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-purple-500 mt-1">•</span>
-            Worked in small agile team, pushed code bi-week to production.
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-purple-500 mt-1">•</span>
-            Interviewed, hired, and mentored a junior QA analyst.
-          </li>
-        </ul>
+    <!-- CapLinked -->
+    <div class="border-l-4 border-purple-500 pl-6">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-1">
+        <h3 class="text-xl font-semibold text-gray-900">CapLinked</h3>
+        <span class="text-sm text-gray-500">QA to Web Developer</span>
       </div>
+      <p class="text-sm text-gray-400 mb-3">Nov 2013 – Dec 2016 · 3 years</p>
+      <ul class="space-y-2 text-gray-600">
+        <li class="flex items-start gap-2">
+          <span class="text-purple-500 mt-1">•</span>
+          Implemented new features and resolved bugs in Ruby on Rails web app on a small agile team, improving user experience
+          and system stability.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-purple-500 mt-1">•</span>
+          Implemented core API (Ruby Grape) including the CapLinked API gem.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-purple-500 mt-1">•</span>
+          Added RSpec and Cucumber tests, reviewed code, and helped maintain consistent development practices.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-purple-500 mt-1">•</span>
+          Conducted code reviews to ensure adherence to best practices and maintain code quality.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-purple-500 mt-1">•</span>
+          Interviewed, hired, and mentored a junior QA analyst, strengthening team capabilities.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-purple-500 mt-1">•</span>
+          Checking Automated Tests - Cucumber, RSpec, writing Gherkin.
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-purple-500 mt-1">•</span>
+          Test planning, manual, White Box, Grey Box testing.
+        </li>
+      </ul>
+    </div>
   </div>
 </Section>
