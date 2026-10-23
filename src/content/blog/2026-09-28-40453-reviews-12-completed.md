@@ -14,7 +14,7 @@ A GraphQL request on our Reviews app was spending 1,320 ms in a single query. No
 
 The `reviews` table behind it was big: about 7 million rows, a 6 GB heap, and 1.1 GB spread across 13 indexes. All of them single-column or expression indexes. Nothing composite, nothing partial. My first thought was the obvious one — this query needs an index that matches how it filters and groups. I figured I'd run `EXPLAIN (ANALYZE, BUFFERS)`, confirm the plan was doing something dumb, and add a composite index.
 
-## 40,453 Reviews, 12 Completed
+## 40,453 Reviews, only 12 Completed
 
 `EXPLAIN (ANALYZE, BUFFERS)` told a different story straight away. This merchant had **40,453 reviews**, and exactly **12** of them were completed. Postgres was walking roughly 200 MB of scattered heap pages — 26,015 heap blocks — to throw away 40,441 rows and hand back a dozen.
 
