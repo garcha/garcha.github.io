@@ -1,7 +1,7 @@
 ---
 title: "How Bot Traffic Created 347k Junk Rows in PostgreSQL"
 description: "A 1.3-second GraphQL query led to a cleanup cron that couldn't keep up, a VACUUM that wouldn't start, a tempting partial index — and the real fix, which was to stop creating the junk in the first place."
-pubDate: 2026-09-28
+pubDate: 2026-10-22
 tags: ["building-in-public", "engineering", "postgresql", "rails", "performance"]
 draft: false
 generatedBy: "agent-edited"
