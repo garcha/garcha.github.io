@@ -18,7 +18,7 @@ The `reviews` table behind it was big: about 7 million rows, a 6 GB heap, and 1.
 
 `EXPLAIN (ANALYZE, BUFFERS)` told a different story straight away. This merchant had **40,453 reviews**, and exactly **12** of them were completed. Postgres was walking roughly 200 MB of scattered heap pages — 26,015 heap blocks — to throw away 40,441 rows and hand back a dozen.
 
-Timing was all over the place on the identical query: 263 ms, 795 ms, 1,320 ms. That's the signature of random I/O living or dying on page-cache luck, not a bad plan shape. An index wouldn't fix it, because the problem wasn't how Postgres was finding the rows. It was how many rows there were to find.
+Timing was all over the place on the identical query: 263 ms, 795 ms, 1,320 ms. That's the signature of random I/O living or dying on page-cache luck, not a bad plan shape. A better index could speed up the query, but it wouldn't explain why one merchant had over 40,000 incomplete reviews in the first place.
 
 So the question changed. Not "which index," but "why does one merchant have 40k incomplete reviews and 12 completions?"
 
@@ -42,9 +42,9 @@ The tempting move was to crank the cap to 50k or more. I didn't like it. That wo
 
 ## Deleting 250k Rows Wasn't Enough
 
-The backlog still had to go, so I started with the ten worst-hit merchants, including the one from the original query and its 40k junk rows. Those ten accounted for about 70% of the junk — almost 250k of the 347k rows. Clearing them took the pressure off the queries that were actually alerting and bought time to do the long-term fix properly instead of under a production alert.
+The backlog still had to go, so I started with the ten worst-hit merchants, including the one from the original query and its 40k junk rows. Those ten accounted for about 70% of the junk — almost 250k of the 347k rows. Clearing them cut the backlog by more than two thirds and bought time to do the long-term fix properly instead of under a production alert.
 
-Then I re-ran the original query, expecting it to be fast. It was still 1,070 ms and still 26,015 heap blocks.
+What it didn't do was make the query fast. I re-ran the original query expecting a big drop and got 1,070 ms and the same 26,015 heap blocks. The rows were gone; the cost of scanning past them wasn't.
 
 `DELETE` only marks tuples dead. The heap pages and index entries stick around until `VACUUM` runs, and autovacuum wasn't going to trigger on its own — the dead-tuple count sat well under the threshold a table this size requires. I ruled out `VACUUM FULL` quickly: a bloat estimate showed nothing meaningful to reclaim, so it would have rewritten the entire 6 GB table under an exclusive lock for nothing. Plain `VACUUM (ANALYZE)` was the right tool.
 
@@ -64,7 +64,7 @@ That one change cuts off every downstream symptom at the source. Every bot hit h
 
 The broader lesson I'm taking from this: sometimes the right optimization isn't making work faster, it's noticing that the work shouldn't exist. I spent the first part of this investigation trying to make Postgres better at skipping junk. The answer was to stop making junk.
 
-Two things are still open:
+## What's Next
 
 - Confirm the backlog drains to zero and the original query settles on its own once the junk is gone and vacuumed. If it doesn't, the partial index is the next lever — and this time it would be a permanent design choice rather than a patch over an incident.
 - Alert when the nightly cleanup job hits its cap. A job that deletes exactly its limit every night is a job that's losing ground, and this one lost ground for weeks because "ran successfully, deleted 25k" looks healthy on every dashboard.
